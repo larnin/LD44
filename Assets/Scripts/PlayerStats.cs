@@ -10,6 +10,8 @@ public class PlayerStats
 
     int m_gold;
 
+    Dictionary<string, StatValue> m_stats = new Dictionary<string, StatValue>();
+
     public static PlayerStats Instance()
     {
         if (m_instance == null)
@@ -30,8 +32,42 @@ public class PlayerStats
         }
     }
 
+    public float GetStatValue(string name, float defaultValue = 0)
+    {
+        if (!m_stats.ContainsKey(name))
+            return defaultValue;
+        return m_stats[name].GetValue();
+    }
+
+    public void AddStatModifier(string name, StatModifier modifier)
+    {
+        if (!m_stats.ContainsKey(name))
+            m_stats.Add(name, new StatValue());
+        m_stats[name].AddModifier(modifier);
+    }
+
+    public void RemoveStatModifier(string name, StatModifier modifier)
+    {
+        if (!m_stats.ContainsKey(name))
+            return;
+        m_stats[name].RemoveModifier(modifier);
+    }
+
+    public void ResetStat(string name)
+    {
+        if (!m_stats.ContainsKey(name))
+            return;
+        m_stats[name].RemoveAllModifiers();
+    }
+
+    public string[] GetStatNames()
+    {
+        return m_stats.Keys.ToArray();
+    }
+
     public void Reset()
     {
         m_gold = 0;
+        m_stats.Clear();
     }
 }
