@@ -30,6 +30,29 @@ public class SimpleProjectile : BaseProjectile
             Destroy(gameObject);
         }
 
-        m_rigidbody.velocity = m_dir * m_speed;
+        float speedMultiplier = 1;
+        if (isPlayerProjectile)
+            speedMultiplier = PlayerStats.Instance().GetStatValue("ProjectileSpeedMultiplier");
+        m_rigidbody.velocity = m_dir * m_speed * speedMultiplier;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(isPlayerProjectile)
+        {
+            float multiplier = PlayerStats.Instance().GetStatValue("DamageMultiplier");
+
+            var life = collision.gameObject.GetComponent<LifeComponent>();
+            if (life != null)
+                life.Damage(m_baseDamage * multiplier);
+        }
+        else
+        {
+            var player = collision.gameObject.GetComponent<PlayerControler>();
+            if (player != null)
+                player.Damage(m_baseDamage);
+        }
+
+        Destroy(gameObject);
     }
 }

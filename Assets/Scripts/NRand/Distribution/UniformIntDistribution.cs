@@ -40,7 +40,7 @@ namespace NRand
 
         public int Next(IRandomGenerator generator)
         {
-            return (int)(((float)generator.Next() - generator.Min()) / (generator.Max() - generator.Min()) * (_maxValue + 1 - _minValue) + _minValue);
+            return (int)(((float)generator.Next() - generator.Min()) / (generator.Max() - generator.Min()) * (_maxValue - _minValue) + _minValue);
         }
     }
 }

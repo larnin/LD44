@@ -47,6 +47,9 @@ public class SimpleWeapon : WeaponBase
 
             projectile.transform.position = pos;
         }
+
+        if (m_isPlayerWeapon)
+            PlayerStats.Instance().gold--;
     }
 
     public override void EndFire()

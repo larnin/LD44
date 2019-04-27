@@ -120,6 +120,65 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &90268118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90268120}
+  - component: {fileID: 90268119}
+  m_Layer: 0
+  m_Name: MapSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &90268119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90268118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8075eb2c9f920d4e8d9c991788ad415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_roomCount: 100
+  m_shopRoomCount: 10
+  m_roomSize: {x: 5, y: 5}
+  m_roomPrefabs:
+  - roomPrefab: {fileID: 718508085852239999, guid: c0367f1197519ab4d84b80972295d08c,
+      type: 3}
+    type: 0
+  - roomPrefab: {fileID: 718508085852239999, guid: 70046e289850e614981f979f9a8ac864,
+      type: 3}
+    type: 3
+  - roomPrefab: {fileID: 718508085852239999, guid: 01a66534caa14fa49b51026055ed73b6,
+      type: 3}
+    type: 2
+  - roomPrefab: {fileID: 718508085852239999, guid: 483d2be3bda482546bd1b42da7eaf105,
+      type: 3}
+    type: 1
+--- !u!4 &90268120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90268118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &142013472
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,121 +222,6 @@ Transform:
   - {fileID: 1605567523}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &375795092
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 375795094}
-  - component: {fileID: 375795093}
-  m_Layer: 0
-  m_Name: DefaultStats
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &375795093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375795092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea57ed9247df0646bec2e162d461a1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: m_stats
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[StatModifier,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 1
-      Data: Speed
-    - Name: 
-      Entry: 7
-      Data: 2|StatModifier, Assembly-CSharp
-    - Name: baseValue
-      Entry: 4
-      Data: 1
-    - Name: multiplier
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: 
-      Entry: 1
-      Data: MoneyMultiplier
-    - Name: 
-      Entry: 7
-      Data: 3|StatModifier, Assembly-CSharp
-    - Name: baseValue
-      Entry: 4
-      Data: 1
-    - Name: multiplier
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  m_debugStats: 0
---- !u!4 &375795094
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 375795092}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0359052, y: 0.07055351, z: -0.007446289}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -1112,6 +1056,228 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &40361941478675313
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 40361941309210341, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_Name
+      value: DefaultStats
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210343, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.size
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"m_stats","add_keys":{"$id":0,"$type":"System.Object[], mscorlib","$rlength":27,"$rcontent":[{"$id":1,"$type":"System.String,
+        mscorlib","SpeedMultiplier"},{"$id":2,"$type":"System.String, mscorlib","DamageMultiplier"},$iref:1,$iref:2,{"$id":3,"$type":"System.String,
+        mscorlib","GoldMultiplier"},$iref:1,$iref:2,$iref:3,{"$id":4,"$type":"System.String,
+        mscorlib","DamageTakenMultiplier"},$iref:1,$iref:2,$iref:3,$iref:4,{"$id":5,"$type":"System.String,
+        mscorlib","ProjectileSpeedMultiplier"},$iref:1,$iref:2,$iref:3,$iref:4,$iref:5,$iref:1,$iref:2,$iref:3,$iref:4,$iref:1,$iref:3,$iref:4,$iref:5]},"remove_keys":{"$id":6,"$type":"System.Object[],
+        mscorlib","$rlength":15,"$rcontent":[{"$id":7,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":8,"$type":"System.String,
+        mscorlib","Speed"},{"$id":9,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":10,"$type":"System.String,
+        mscorlib","Speed"},{"$id":11,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":12,"$type":"System.String,
+        mscorlib","Speed"},{"$id":13,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":14,"$type":"System.String,
+        mscorlib","Speed"},{"$id":15,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":16,"$type":"System.String,
+        mscorlib","Speed"},{"$id":17,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":18,"$type":"System.String,
+        mscorlib","Speed"},{"$id":19,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":20,"$type":"System.String,
+        mscorlib","Speed"},{"$id":21,"$type":"System.String, mscorlib","MoneyMultiplier"}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[1]
+      value: '"path":"m_stats.{\"DamageMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
+        Assembly-CSharp","baseValue":1,"multiplier":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[2]
+      value: '"path":"m_stats.{\"DamageMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[3]
+      value: '"path":"m_stats.{\"DamageMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[4]
+      value: '"path":"m_stats.{\"DamageTakenMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
+        Assembly-CSharp","baseValue":1,"multiplier":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[5]
+      value: '"path":"m_stats.{\"DamageTakenMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[6]
+      value: '"path":"m_stats.{\"DamageTakenMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[7]
+      value: '"path":"m_stats.{\"GoldMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
+        Assembly-CSharp","baseValue":1,"multiplier":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[8]
+      value: '"path":"m_stats.{\"GoldMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[9]
+      value: '"path":"m_stats.{\"GoldMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[10]
+      value: '"path":"m_stats.{\"ProjectileSpeedMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
+        Assembly-CSharp","baseValue":1,"multiplier":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[11]
+      value: '"path":"m_stats.{\"ProjectileSpeedMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[12]
+      value: '"path":"m_stats.{\"ProjectileSpeedMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[13]
+      value: '"path":"m_stats.{\"SpeedMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
+        Assembly-CSharp","baseValue":1,"multiplier":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[14]
+      value: '"path":"m_stats.{\"SpeedMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[15]
+      value: '"path":"m_stats.{\"SpeedMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[3].Data
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[5].Data
+      value: SpeedMultiplier
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[12].Data
+      value: DamageMultiplier
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[18].Entry
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[19].Entry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[19].Data
+      value: GoldMultiplier
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33cedad122473c140b618ef954c17f5c, type: 3}
 --- !u!1001 &1284813940822518946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1179,6 +1345,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8701066431146588565, guid: 9581eb9043ff1e84e9ba63833b32a721,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8701066431146588565, guid: 9581eb9043ff1e84e9ba63833b32a721,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9581eb9043ff1e84e9ba63833b32a721, type: 3}
 --- !u!1001 &2233932899080045259
@@ -1249,12 +1421,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
       propertyPath: serializationData.Prefab
@@ -1298,6 +1470,10 @@ PrefabInstance:
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[5]
       value: '"path":"m_weapon.m_projectilePrefab","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[6].Data
+      value: -0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2233932899549449889}
   - component: {fileID: 604867693}
   - component: {fileID: 604867688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,9 @@ MonoBehaviour:
     - Name: m_weapon
       Entry: 7
       Data: 0|SimpleWeapon, Assembly-CSharp
+    - Name: m_modifiers
+      Entry: 6
+      Data: 
     - Name: m_gunPrefab
       Entry: 10
       Data: 0
@@ -152,7 +155,7 @@ MonoBehaviour:
       Data: 0.5
     - Name: 
       Entry: 4
-      Data: 0.2
+      Data: -0.2
     - Name: 
       Entry: 8
       Data: 
@@ -172,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2213936648471473300}
   - component: {fileID: 4604155367614452860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

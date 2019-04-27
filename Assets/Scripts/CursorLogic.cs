@@ -4,11 +4,14 @@ using System.Collections;
 public class CursorLogic : MonoBehaviour
 {
     SubscriberList m_subscriberList = new SubscriberList();
+    SpriteRenderer m_renderer = null;
 
     private void Awake()
     {
         m_subscriberList.Add(new Event<WeaponTargetChangeEvent>.Subscriber(OnCursorMove));
         m_subscriberList.Subscribe();
+
+        m_renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnDestroy()
@@ -19,5 +22,9 @@ public class CursorLogic : MonoBehaviour
     void OnCursorMove(WeaponTargetChangeEvent e)
     {
         transform.position = e.target;
+        Color c = Color.white;
+        if (e.distance < 1)
+            c.a *= e.distance;
+        m_renderer.color = c;
     }
 }

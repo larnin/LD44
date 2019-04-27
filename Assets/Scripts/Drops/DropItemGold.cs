@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using NRand;
 
 public class DropItemGold : DropItem
 {
@@ -8,7 +9,13 @@ public class DropItemGold : DropItem
 
     public override void ApplyLoot(GameObject player)
     {
-        PlayerStats.Instance().gold += value;
+        float goldStat = PlayerStats.Instance().GetStatValue("GoldMultiplier");
+        float finalGold = value * goldStat;
+        float fPart = finalGold - Mathf.Floor(finalGold);
+        if (new UniformFloatDistribution(0, 1).Next(new StaticRandomGenerator<MT19937>()) < fPart)
+            finalGold++;
+
+        PlayerStats.Instance().gold += Mathf.FloorToInt(finalGold);
 
         if(m_feedbackPrefab)
         {

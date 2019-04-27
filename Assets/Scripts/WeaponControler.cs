@@ -20,8 +20,12 @@ public class WeaponControler : SerializedMonoBehaviour
 
     SubscriberList m_subscriberList = new SubscriberList();
 
+    PlayerControler m_playerControler = null;
+
     private void Awake()
     {
+        m_playerControler = GetComponent<PlayerControler>();
+
         m_subscriberList.Add(new Event<WeaponPickedEvent>.Subscriber(OnWeaponPickup));
         m_subscriberList.Subscribe();
 
@@ -44,13 +48,17 @@ public class WeaponControler : SerializedMonoBehaviour
         UpdateControlerCursor();
 
         Vector2 pos = transform.position;
-        Event<WeaponTargetChangeEvent>.Broadcast(new WeaponTargetChangeEvent(m_cursorPosition + pos));
+        Event<WeaponTargetChangeEvent>.Broadcast(new WeaponTargetChangeEvent(m_cursorPosition + pos, m_cursorPosition.magnitude));
 
         if (m_weapon != null)
         {
+            var dir = m_cursorPosition;
+            if (dir.sqrMagnitude < 0.01f && m_playerControler != null)
+                dir = m_playerControler.GetMoveDirection();
+
             if (Input.GetButtonDown(fireButton))
-                m_weapon.StartFire(m_cursorPosition);
-            m_weapon.Process(m_cursorPosition);
+                m_weapon.StartFire(dir);
+            m_weapon.Process(dir);
             if (Input.GetButtonUp(fireButton))
                 m_weapon.EndFire();
         }

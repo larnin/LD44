@@ -7,10 +7,12 @@ using UnityEngine;
 
 public class WeaponTargetChangeEvent : EventArgs
 {
-    public WeaponTargetChangeEvent(Vector2 _target)
+    public WeaponTargetChangeEvent(Vector2 _target, float _distance)
     {
         target = _target;
+        distance = _distance;
     }
 
     public Vector2 target;
+    public float distance;
 }
