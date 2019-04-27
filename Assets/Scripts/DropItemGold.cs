@@ -4,7 +4,7 @@ using System.Collections;
 public class DropItemGold : DropItem
 {
     [SerializeField] int value = 0;
-    [SerializeField] GameObject m_feedbackPrefab;
+    [SerializeField] GameObject m_feedbackPrefab = null;
 
     public override void ApplyLoot(GameObject player)
     {

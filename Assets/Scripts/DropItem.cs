@@ -5,7 +5,7 @@ public class DropItem : MonoBehaviour
 {
     public bool autoloot = false;
     
-    [SerializeField] GameObject m_tooltip;
+    [SerializeField] GameObject m_tooltip = null;
 
     void Start()
     {

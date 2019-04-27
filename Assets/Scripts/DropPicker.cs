@@ -5,8 +5,8 @@ public class DropPicker : MonoBehaviour
 {
     const string pickupButton = "Pickup";
 
-    [SerializeField] float m_lootDistance;
-    [SerializeField] float m_autoLootDistance;
+    [SerializeField] float m_lootDistance = 1;
+    [SerializeField] float m_autoLootDistance = 1;
 
     DropItem m_currentLoot = null;
     

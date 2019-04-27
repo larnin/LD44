@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 public class DefaultStats : SerializedMonoBehaviour
 {
     [SerializeField] Dictionary<string, StatModifier> m_stats = new Dictionary<string, StatModifier>();
-    [SerializeField] bool m_debugStats;
+    [SerializeField] bool m_debugStats = false;
     
     private void Awake()
     {
