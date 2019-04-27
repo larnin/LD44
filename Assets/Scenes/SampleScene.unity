@@ -1248,5 +1248,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1,
+        type: 3}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 3561944106956106535, guid: d4233fcb35e022249ab1db14c3535528,
+        type: 3}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 2661134112763916582, guid: f2562189a4694074681fcaaf6d78cee6,
+        type: 3}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"m_weapon","value":{"$id":0,"$type":"SimpleWeapon, Assembly-CSharp","m_gunPrefab":$eref:0,"m_projectilePrefab":$eref:1,"m_ballsStatOffset":{"$type":"UnityEngine.Vector2,
+        UnityEngine.CoreModule",0.5,-0.2}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[1]
+      value: '"path":"m_weapon.m_ballsStatOffset","value":{"$id":0,"$type":"UnityEngine.Vector2,
+        UnityEngine.CoreModule",0,0}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[2]
+      value: '"path":"m_weapon.m_ballsStatOffset.x","value":{"$id":0,"$type":"System.Single,
+        mscorlib",0.5}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[3]
+      value: '"path":"m_weapon.m_ballsStatOffset.y","value":{"$id":0,"$type":"System.Single,
+        mscorlib",-0.2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[4]
+      value: '"path":"m_weapon.m_gunPrefab","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[5]
+      value: '"path":"m_weapon.m_projectilePrefab","value":$eref:1'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}

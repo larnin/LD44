@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Sirenix.OdinInspector;
 
-public class DropItem : MonoBehaviour
+public class DropItem : SerializedMonoBehaviour
 {
     public bool autoloot = false;
     

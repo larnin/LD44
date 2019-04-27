@@ -17,7 +17,6 @@ public class WeaponControler : SerializedMonoBehaviour
 
     Vector2 m_cursorPosition = new Vector2(0, 0);
     bool m_controlerWasCentredLastFrame = false;
-    GameObject m_weaponVisual = null;
 
     SubscriberList m_subscriberList = new SubscriberList();
 
@@ -30,6 +29,7 @@ public class WeaponControler : SerializedMonoBehaviour
         {
             m_weapon.SetOwner(gameObject);
             m_weapon.OnEquip();
+            m_weapon.SetPlayerWeapon(true);
         }
     }
 
@@ -102,6 +102,7 @@ public class WeaponControler : SerializedMonoBehaviour
         {
             m_weapon.SetOwner(gameObject);
             m_weapon.OnEquip();
+            m_weapon.SetPlayerWeapon(true);
         }
     }
 }
