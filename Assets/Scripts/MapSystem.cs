@@ -46,6 +46,10 @@ public class MapSystem : MonoBehaviour
     [SerializeField] int m_shopRoomCount = 2;
     [SerializeField] Vector2 m_roomSize = new Vector2(20, 15);
     [SerializeField] List<RoomInfo> m_roomPrefabs = new List<RoomInfo>();
+    [SerializeField] GameObject m_topDoor = null;
+    [SerializeField] GameObject m_downDoor = null;
+    [SerializeField] GameObject m_leftDoor = null;
+    [SerializeField] GameObject m_rightDoor = null;
     
     static MapSystem m_instance = null;
 
