@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 public class GoldChangedEvent : EventArgs
 {
-    public GoldChangedEvent(float _value)
+    public GoldChangedEvent(int _value, int _offset)
     {
         value = _value;
+        offset = _offset;
     }
 
-    public float value;
+    public int value;
+    public int offset;
 }

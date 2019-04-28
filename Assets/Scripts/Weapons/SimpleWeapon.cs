@@ -37,36 +37,7 @@ public class SimpleWeapon : WeaponBase
 
     public override void StartFire(Vector2 direction)
     {
-        if (m_projectilePrefab == null)
-            return;
-
-        var projectileObj = GameObject.Instantiate(m_projectilePrefab);
-        var projectile = projectileObj.GetComponent<BaseProjectile>();
-        if (projectile != null)
-        {
-            projectile.isPlayerProjectile = m_isPlayerWeapon;
-            projectile.SetDirection(direction);
-
-            float angle = Mathf.Atan2(direction.y, direction.x);
-            float cos = Mathf.Cos(angle);
-            float sin = Mathf.Sin(angle);
-            Vector2 pos = m_owner.transform.position;
-            var offset = m_ballsStatOffset;
-            if (angle < -Mathf.PI/2 || angle > Mathf.PI / 2)
-                offset.y *= -1;
-            pos += new Vector2(offset.x * cos - offset.y * sin, offset.x * sin + offset.y * cos);
-
-            projectile.transform.position = pos;
-        }
-
-        if (m_isPlayerWeapon)
-            PlayerStats.Instance().gold--;
-
-        if(m_gunFire != null)
-        {
-            m_gunFire.SetActive(true);
-            DOVirtual.DelayedCall(0.1f, ()=>{ m_gunFire.SetActive(false); });
-        }
+        Fire(direction);
     }
 
     public override void EndFire()
@@ -96,4 +67,37 @@ public class SimpleWeapon : WeaponBase
         m_gun.transform.localScale = new Vector3(scale, 1, 1);
     }
 
+    protected void Fire(Vector2 direction)
+    {
+        if (m_projectilePrefab == null)
+            return;
+
+        var projectileObj = GameObject.Instantiate(m_projectilePrefab);
+        var projectile = projectileObj.GetComponent<BaseProjectile>();
+        if (projectile != null)
+        {
+            projectile.isPlayerProjectile = m_isPlayerWeapon;
+            projectile.SetDirection(direction);
+
+            float angle = Mathf.Atan2(direction.y, direction.x);
+            float cos = Mathf.Cos(angle);
+            float sin = Mathf.Sin(angle);
+            Vector2 pos = m_owner.transform.position;
+            var offset = m_ballsStatOffset;
+            if (angle < -Mathf.PI / 2 || angle > Mathf.PI / 2)
+                offset.y *= -1;
+            pos += new Vector2(offset.x * cos - offset.y * sin, offset.x * sin + offset.y * cos);
+
+            projectile.transform.position = pos;
+        }
+
+        if (m_isPlayerWeapon)
+            PlayerStats.Instance().gold--;
+
+        if (m_gunFire != null)
+        {
+            m_gunFire.SetActive(true);
+            DOVirtual.DelayedCall(0.1f, () => { m_gunFire.SetActive(false); });
+        }
+    }
 }

@@ -13,9 +13,12 @@ public class SimpleProjectile : BaseProjectile
     public override void SetDirection(Vector2 dir)
     {
         m_dir = dir.normalized;
+
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        m_rigidbody.rotation = angle;
     }
 
-    private void Start()
+    private void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
     }

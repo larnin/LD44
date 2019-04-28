@@ -54,6 +54,8 @@ MonoBehaviour:
   m_threshold: 0.1
   m_blinkTime: 10
   m_mat: {fileID: 2100000, guid: a8cbc34bacb0b2e4d8064bedc1ed7e98, type: 2}
+  m_goldGainPrefab: {fileID: 7984917610156266477, guid: e424b6fd87bb7ec45bb30e74063afc5b,
+    type: 3}
 --- !u!61 &2233932899549449888
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +134,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 3561944106956106535, guid: d4233fcb35e022249ab1db14c3535528, type: 3}
-    - {fileID: 2661134112763916582, guid: f2562189a4694074681fcaaf6d78cee6, type: 3}
+    - {fileID: 8870761549202993873, guid: cee703e751bd1824f9cbc3ace46c3937, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -168,6 +170,7 @@ MonoBehaviour:
   m_cursorSpeed: 1
   m_cursorMaxDistance: 4
   m_threshold: 0.1
+  m_weaponPrefab: {fileID: 0}
 --- !u!95 &2233932899549449901
 Animator:
   serializedVersion: 3

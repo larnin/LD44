@@ -51,10 +51,16 @@ public class PiggyControler : MonoBehaviour
 
             DOVirtual.DelayedCall(m_startJumpDelay, () =>
             {
+                if (this == null)
+                    return;
+
                 m_velocity = dir / jumpTime;
 
                 DOVirtual.DelayedCall(jumpTime, () =>
                 {
+                    if (this == null)
+                        return;
+
                     m_velocity = new Vector2(0, 0);
                     m_jumpTimer = new UniformFloatDistribution(m_minIdleTime, m_maxIdleTime).Next(new StaticRandomGenerator<MT19937>());
                     m_jumping = false;

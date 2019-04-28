@@ -9,14 +9,16 @@ public class DropItem : SerializedMonoBehaviour
 
     [SerializeField] float m_startDropSpeed = 1.5f;
     [SerializeField] float m_dropAnimationTime = 1.0f;
-    [SerializeField] GameObject m_tooltip = null;
+    
 
     Rigidbody2D m_rigidbody = null;
     float m_dropTime = 0;
     Vector2 m_dropDir;
+    GameObject m_tooltip = null;
 
     void Start()
     {
+        m_tooltip = transform.Find("Tooltip")?.gameObject;
         if(m_tooltip != null)
             m_tooltip.SetActive(false);
 

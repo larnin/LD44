@@ -12,6 +12,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] float m_threshold = 0.1f;
     [SerializeField] float m_blinkTime = 10.0f;
     [SerializeField] Material m_mat = null;
+    [SerializeField] GameObject m_goldGainPrefab = null;
 
     Vector2 m_speed = new Vector2(0, 0);
     Vector2 m_input = new Vector2(0, 0);
@@ -35,6 +36,7 @@ public class PlayerControler : MonoBehaviour
     private void Awake()
     {
         m_subscriberList.Add(new Event<TeleportPlayerEvent>.Subscriber(OnTeleport));
+        m_subscriberList.Add(new Event<GoldChangedEvent>.Subscriber(OnGoldGain));
         m_subscriberList.Subscribe();
 
         m_instance = this;
@@ -133,5 +135,18 @@ public class PlayerControler : MonoBehaviour
     void OnTeleport(TeleportPlayerEvent e)
     {
         transform.position = new Vector3(e.target.x, e.target.y, transform.position.z);
+    }
+
+    void OnGoldGain(GoldChangedEvent e)
+    {
+        if (m_goldGainPrefab == null)
+            return;
+
+        var obj = Instantiate(m_goldGainPrefab);
+        obj.transform.position = transform.position;
+
+        var gain = obj.GetComponentInChildren<GoldGain>();
+        if (gain != null)
+            gain.SetValue(e.offset);
     }
 }

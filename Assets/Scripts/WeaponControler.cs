@@ -14,6 +14,7 @@ public class WeaponControler : SerializedMonoBehaviour
     [SerializeField] float m_cursorMaxDistance = 1;
     [SerializeField] float m_threshold = 0.1f;
     [SerializeField] WeaponBase m_weapon = null;
+    [SerializeField] GameObject m_weaponPrefab = null;
 
     Vector2 m_cursorPosition = new Vector2(0, 0);
     bool m_controlerWasCentredLastFrame = false;
@@ -109,7 +110,12 @@ public class WeaponControler : SerializedMonoBehaviour
         {
             m_weapon.OnDesequip();
             m_weapon.SetOwner(null);
-            //todo loot
+
+            if(m_weaponPrefab != null)
+            {
+                var obj = Instantiate(m_weaponPrefab);
+                obj.transform.position = transform.position;
+            }
         }
 
         m_weapon = e.weapon;

@@ -24,11 +24,13 @@ public class PlayerStats
         get { return m_gold; }
         set
         {
+            int offset = value - gold;
+
             if (m_gold == value)
                 return;
             m_gold = value;
 
-            Event<GoldChangedEvent>.Broadcast(new GoldChangedEvent(m_gold));
+            Event<GoldChangedEvent>.Broadcast(new GoldChangedEvent(m_gold, offset));
         }
     }
 
