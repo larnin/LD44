@@ -21,10 +21,12 @@ public class WeaponControler : SerializedMonoBehaviour
     SubscriberList m_subscriberList = new SubscriberList();
 
     PlayerControler m_playerControler = null;
+    Animator m_animator = null;
 
     private void Awake()
     {
         m_playerControler = GetComponent<PlayerControler>();
+        m_animator = GetComponent<Animator>();
 
         m_subscriberList.Add(new Event<WeaponPickedEvent>.Subscriber(OnWeaponPickup));
         m_subscriberList.Subscribe();
@@ -50,11 +52,13 @@ public class WeaponControler : SerializedMonoBehaviour
         Vector2 pos = transform.position;
         Event<WeaponTargetChangeEvent>.Broadcast(new WeaponTargetChangeEvent(m_cursorPosition + pos, m_cursorPosition.magnitude));
 
+        var dir = m_cursorPosition;
+        if (dir.sqrMagnitude < 0.01f && m_playerControler != null)
+            dir = m_playerControler.GetMoveDirection();
+
         if (m_weapon != null)
         {
-            var dir = m_cursorPosition;
-            if (dir.sqrMagnitude < 0.01f && m_playerControler != null)
-                dir = m_playerControler.GetMoveDirection();
+            
 
             if (Input.GetButtonDown(fireButton))
                 m_weapon.StartFire(dir);
@@ -62,6 +66,9 @@ public class WeaponControler : SerializedMonoBehaviour
             if (Input.GetButtonUp(fireButton))
                 m_weapon.EndFire();
         }
+
+        float angle = Mathf.Atan2(dir.y, dir.x);
+        m_animator.SetBool("Left", angle < -Mathf.PI / 2 || angle > Mathf.PI / 2);
     }
 
     void UpdateMouseCursor()

@@ -1145,14 +1145,6 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
-      propertyPath: m_cursorMaxDistance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1,

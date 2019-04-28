@@ -19,15 +19,25 @@ public class PlayerControler : MonoBehaviour
     Vector2 m_oldSpeed = new Vector2(1, 0);
 
     Rigidbody2D m_rigidbody;
+    Animator m_animator;
 
     SubscriberList m_subscriberList = new SubscriberList();
 
     float m_invincibleTime = 0;
 
+    static PlayerControler m_instance;
+
+    public static PlayerControler Instance()
+    {
+        return m_instance;
+    }
+
     private void Awake()
     {
         m_subscriberList.Add(new Event<TeleportPlayerEvent>.Subscriber(OnTeleport));
         m_subscriberList.Subscribe();
+
+        m_instance = this;
     }
 
     private void OnDestroy()
@@ -38,6 +48,7 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -85,6 +96,8 @@ public class PlayerControler : MonoBehaviour
 
         if (m_speed.sqrMagnitude > 0.01f)
             m_oldSpeed = m_speed;
+
+        m_animator.SetBool("Move", m_speed.sqrMagnitude > 0.01f);
     }
 
     float CalculateSpeed(float speed, float targetSpeed, float multiplier)
