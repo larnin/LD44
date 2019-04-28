@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using NRand;
+using DG.Tweening;
 
 public class MapSystem : MonoBehaviour
 {
-    enum RoomType
+    public enum RoomType
     {
         DefaultRoom,
         StartRoom,
@@ -22,13 +23,17 @@ public class MapSystem : MonoBehaviour
         public RoomType type = RoomType.DefaultRoom;
     }
 
-    class RoomInstance
+    public class RoomInstance
     {
         public GameObject room = null;
         public bool discovered = false;
         public int x = 0;
         public int y = 0;
         public RoomType type = RoomType.DefaultRoom;
+        public bool upDoor = false;
+        public bool downDoor = false;
+        public bool leftDoor = false;
+        public bool rightDoor = false;
     }
 
     class RoomGeneration
@@ -54,6 +59,8 @@ public class MapSystem : MonoBehaviour
     static MapSystem m_instance = null;
 
     List<RoomInstance> m_rooms = new List<RoomInstance>();
+
+    Vector2Int m_currentRoom = new Vector2Int(0, 0);
 
     public static MapSystem GetInstance()
     {
@@ -104,21 +111,21 @@ public class MapSystem : MonoBehaviour
 
                 nbDoors = new UniformIntDistribution(0, nbDoors).Next(new StaticRandomGenerator<MT19937>()) + 1;
                 Vector2Int pos = queueRooms[index];
-                if (CanGo(queueRooms[index] + new Vector2Int(0, -1), rooms)) nbDoors--;
+                if (CanGo(queueRooms[index] + new Vector2Int(0, 1), rooms)) nbDoors--;
                 if (nbDoors == 0)
                 {
                     r.upDoor = true;
                     nextRoom.downDoor = true;
-                    pos.y--;
+                    pos.y++;
                 }
                 else
                 {
-                    if (CanGo(queueRooms[index] + new Vector2Int(0, 1), rooms)) nbDoors--;
+                    if (CanGo(queueRooms[index] + new Vector2Int(0, -1), rooms)) nbDoors--;
                     if (nbDoors == 0)
                     {
                         r.downDoor = true;
                         nextRoom.upDoor = true;
-                        pos.y++;
+                        pos.y--;
                     }
                     else
                     {
@@ -172,6 +179,10 @@ public class MapSystem : MonoBehaviour
 
         for (int i = 0; i < rooms.Count; i++)
             InstantiateRoom(rooms[i]);
+
+        m_rooms[0].discovered = true;
+
+        Event<UpdateMinimapEvent>.Broadcast(new UpdateMinimapEvent(m_rooms, m_currentRoom));
     }
 
     bool CanGo(Vector2Int to, List<RoomGeneration> rooms)
@@ -210,5 +221,11 @@ public class MapSystem : MonoBehaviour
         instance.type = r.type;
         instance.x = r.x;
         instance.y = r.y;
+        instance.upDoor = r.upDoor;
+        instance.downDoor = r.downDoor;
+        instance.leftDoor = r.leftDoor;
+        instance.rightDoor = r.rightDoor;
+
+        m_rooms.Add(instance);
     }
 }
