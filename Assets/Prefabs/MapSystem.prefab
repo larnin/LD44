@@ -68,4 +68,4 @@ MonoBehaviour:
   m_rightDoor: {fileID: 1079850790870154014, guid: 094fc867cfc210c47b33416cc28b9229,
     type: 3}
   m_cameraMoveSpeed: 0.5
-  m_playerDoorDistance: 2
+  m_playerDoorDistance: 2.5

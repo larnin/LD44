@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 public class DefaultStats : SerializedMonoBehaviour
 {
     [SerializeField] Dictionary<string, StatModifier> m_stats = new Dictionary<string, StatModifier>();
+    [SerializeField] int m_baseGold = 5;
     [SerializeField] bool m_debugStats = false;
     
     private void Awake()
@@ -14,6 +15,8 @@ public class DefaultStats : SerializedMonoBehaviour
         {
             PlayerStats.Instance().AddStatModifier(s.Key, s.Value);
         }
+
+        PlayerStats.Instance().gold += m_baseGold;
     }
 
     private void OnDestroy()
