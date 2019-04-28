@@ -53,7 +53,7 @@ MonoBehaviour:
   - roomPrefab: {fileID: 4514650985963850729, guid: 67e0603eaa4b600409fc87961898318d,
       type: 3}
     type: 3
-  - roomPrefab: {fileID: 4514650985963850729, guid: 67e0603eaa4b600409fc87961898318d,
+  - roomPrefab: {fileID: 1286672409448446105, guid: ffdab0f148829aa4e9b3ddf7b85f0b08,
       type: 3}
     type: 2
   - roomPrefab: {fileID: 4514650985963850729, guid: 67e0603eaa4b600409fc87961898318d,
