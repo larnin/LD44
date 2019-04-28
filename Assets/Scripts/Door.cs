@@ -55,6 +55,9 @@ public class Door : MonoBehaviour
         if (!m_doorState)
             return;
 
+        if (collision.GetComponent<PlayerControler>() == null)
+            return;
+
         Event<DoorUsedEvent>.Broadcast(new DoorUsedEvent(m_direction));
     }
 }

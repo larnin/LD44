@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using DG.Tweening;
 
 public class SimpleWeapon : WeaponBase
 {
@@ -12,12 +13,18 @@ public class SimpleWeapon : WeaponBase
     [SerializeField] Vector2 m_ballsStatOffset = new Vector2(0, 0);
 
     GameObject m_gun;
+    GameObject m_gunFire;
 
     public override void OnEquip()
     {
         base.OnEquip();
-        if(m_gunPrefab != null)
+        if (m_gunPrefab != null)
+        {
             m_gun = GameObject.Instantiate(m_gunPrefab, m_owner.transform);
+            m_gunFire = m_gun.transform.Find("Fire").gameObject;
+            if(m_gunFire != null)
+                m_gunFire.SetActive(false);
+        }
     }
 
     public override void OnDesequip()
@@ -25,6 +32,7 @@ public class SimpleWeapon : WeaponBase
         base.OnDesequip();
         if(m_gun != null)
             GameObject.Destroy(m_gun);
+        m_gunFire = null;
     }
 
     public override void StartFire(Vector2 direction)
@@ -43,13 +51,22 @@ public class SimpleWeapon : WeaponBase
             float cos = Mathf.Cos(angle);
             float sin = Mathf.Sin(angle);
             Vector2 pos = m_owner.transform.position;
-            pos += new Vector2(m_ballsStatOffset.x * cos - m_ballsStatOffset.y * sin, m_ballsStatOffset.x * sin + m_ballsStatOffset.y * cos);
+            var offset = m_ballsStatOffset;
+            if (angle < -Mathf.PI/2 || angle > Mathf.PI / 2)
+                offset.y *= -1;
+            pos += new Vector2(offset.x * cos - offset.y * sin, offset.x * sin + offset.y * cos);
 
             projectile.transform.position = pos;
         }
 
         if (m_isPlayerWeapon)
             PlayerStats.Instance().gold--;
+
+        if(m_gunFire != null)
+        {
+            m_gunFire.SetActive(true);
+            DOVirtual.DelayedCall(0.1f, ()=>{ m_gunFire.SetActive(false); });
+        }
     }
 
     public override void EndFire()
@@ -63,13 +80,20 @@ public class SimpleWeapon : WeaponBase
             return;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        m_gun.transform.rotation = Quaternion.Euler(0, 0, angle);
+        float scale = 1;
 
         if (angle > 0 && angle < 180)
             m_gun.transform.localPosition = new Vector3(0, 0, 0.1f);
         else  m_gun.transform.localPosition = new Vector3(0, 0, -0.1f);
 
+        if(angle < -90 || angle > 90)
+        {
+            angle += 180;
+            scale = -1;
+        }
+
+        m_gun.transform.rotation = Quaternion.Euler(0, 0, angle);
+        m_gun.transform.localScale = new Vector3(scale, 1, 1);
     }
 
 }

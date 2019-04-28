@@ -227,7 +227,7 @@ public class MapSystem : MonoBehaviour
     void InstantiateRoom(RoomGeneration r, RoomInfo rInfo)
     {
         var room = Instantiate(rInfo.roomPrefab);
-        room.transform.position = new Vector3(r.x * m_roomSize.x, r.y * m_roomSize.y, 0);
+        room.transform.position = new Vector3(r.x * m_roomSize.x, r.y * m_roomSize.y, 1);
         RoomInstance instance = new RoomInstance();
         instance.room = room;
         instance.type = r.type;

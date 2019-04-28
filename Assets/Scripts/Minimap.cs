@@ -79,9 +79,9 @@ public class Minimap : SerializedMonoBehaviour
 
     bool HaveNeighborDiscovered(MapSystem.RoomInstance room, List<MapSystem.RoomInstance> rooms)
     {
-        if (room.upDoor && IsDiscovered(new Vector2Int(room.x, room.y - 1), rooms))
+        if (room.upDoor && IsDiscovered(new Vector2Int(room.x, room.y + 1), rooms))
             return true;
-        if (room.downDoor && IsDiscovered(new Vector2Int(room.x, room.y + 1), rooms))
+        if (room.downDoor && IsDiscovered(new Vector2Int(room.x, room.y - 1), rooms))
             return true;
         if (room.leftDoor && IsDiscovered(new Vector2Int(room.x - 1, room.y), rooms))
             return true;

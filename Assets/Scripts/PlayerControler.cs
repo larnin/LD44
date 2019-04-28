@@ -10,6 +10,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] float m_maxSpeed = 1.0f;
     [SerializeField] float m_acceleration = 1.0f;
     [SerializeField] float m_threshold = 0.1f;
+    [SerializeField] float m_blinkTime = 10.0f;
+    [SerializeField] Material m_mat = null;
 
     Vector2 m_speed = new Vector2(0, 0);
     Vector2 m_input = new Vector2(0, 0);
@@ -19,6 +21,8 @@ public class PlayerControler : MonoBehaviour
     Rigidbody2D m_rigidbody;
 
     SubscriberList m_subscriberList = new SubscriberList();
+
+    float m_invincibleTime = 0;
 
     private void Awake()
     {
@@ -44,6 +48,18 @@ public class PlayerControler : MonoBehaviour
         var magnitude = m_input.magnitude;
         if (magnitude > 1.0f)
             m_input /= magnitude;
+
+        m_invincibleTime -= Time.deltaTime;
+        if(m_invincibleTime > 0)
+        {
+            float colorValue = Mathf.Sin(m_invincibleTime * m_blinkTime) * 0.5f + 0.5f;
+            var color = new Color(colorValue, colorValue, colorValue);
+                m_mat.SetColor("_AdditiveColor", color);
+        }
+        else
+        {
+            m_mat.SetColor("_AdditiveColor", Color.black);
+        }
     }
 
     void FixedUpdate()
@@ -89,6 +105,11 @@ public class PlayerControler : MonoBehaviour
 
     public void Damage(float power)
     {
+        if (m_invincibleTime > 0)
+            return;
+
+        m_invincibleTime = PlayerStats.Instance().GetStatValue("RecoverTime");
+
         float multiplier = PlayerStats.Instance().GetStatValue("DamageTakenMultiplier");
 
         int value = Mathf.CeilToInt(power * multiplier);

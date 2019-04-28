@@ -768,12 +768,12 @@ PrefabInstance:
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 16
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.SerializationNodes.Array.size
-      value: 41
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
@@ -784,19 +784,20 @@ PrefabInstance:
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"m_stats","add_keys":{"$id":0,"$type":"System.Object[], mscorlib","$rlength":27,"$rcontent":[{"$id":1,"$type":"System.String,
+      value: '"path":"m_stats","add_keys":{"$id":0,"$type":"System.Object[], mscorlib","$rlength":29,"$rcontent":[{"$id":1,"$type":"System.String,
         mscorlib","SpeedMultiplier"},{"$id":2,"$type":"System.String, mscorlib","DamageMultiplier"},$iref:1,$iref:2,{"$id":3,"$type":"System.String,
         mscorlib","GoldMultiplier"},$iref:1,$iref:2,$iref:3,{"$id":4,"$type":"System.String,
         mscorlib","DamageTakenMultiplier"},$iref:1,$iref:2,$iref:3,$iref:4,{"$id":5,"$type":"System.String,
-        mscorlib","ProjectileSpeedMultiplier"},$iref:1,$iref:2,$iref:3,$iref:4,$iref:5,$iref:1,$iref:2,$iref:3,$iref:4,$iref:1,$iref:3,$iref:4,$iref:5]},"remove_keys":{"$id":6,"$type":"System.Object[],
-        mscorlib","$rlength":15,"$rcontent":[{"$id":7,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":8,"$type":"System.String,
-        mscorlib","Speed"},{"$id":9,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":10,"$type":"System.String,
-        mscorlib","Speed"},{"$id":11,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":12,"$type":"System.String,
-        mscorlib","Speed"},{"$id":13,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":14,"$type":"System.String,
-        mscorlib","Speed"},{"$id":15,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":16,"$type":"System.String,
-        mscorlib","Speed"},{"$id":17,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":18,"$type":"System.String,
-        mscorlib","Speed"},{"$id":19,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":20,"$type":"System.String,
-        mscorlib","Speed"},{"$id":21,"$type":"System.String, mscorlib","MoneyMultiplier"}]}'
+        mscorlib","ProjectileSpeedMultiplier"},$iref:1,$iref:2,$iref:3,$iref:4,$iref:5,$iref:1,$iref:2,$iref:3,$iref:4,$iref:1,$iref:3,$iref:4,$iref:5,{"$id":6,"$type":"System.String,
+        mscorlib","RecoverTime"},$iref:6]},"remove_keys":{"$id":7,"$type":"System.Object[],
+        mscorlib","$rlength":15,"$rcontent":[{"$id":8,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":9,"$type":"System.String,
+        mscorlib","Speed"},{"$id":10,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":11,"$type":"System.String,
+        mscorlib","Speed"},{"$id":12,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":13,"$type":"System.String,
+        mscorlib","Speed"},{"$id":14,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":15,"$type":"System.String,
+        mscorlib","Speed"},{"$id":16,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":17,"$type":"System.String,
+        mscorlib","Speed"},{"$id":18,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":19,"$type":"System.String,
+        mscorlib","Speed"},{"$id":20,"$type":"System.String, mscorlib","MoneyMultiplier"},{"$id":21,"$type":"System.String,
+        mscorlib","Speed"},{"$id":22,"$type":"System.String, mscorlib","MoneyMultiplier"}]}'
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
@@ -873,50 +874,58 @@ PrefabInstance:
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[13]
-      value: '"path":"m_stats.{\"SpeedMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
+      value: '"path":"m_stats.{\"RecoverTime\"}","value":{"$id":0,"$type":"StatModifier,
         Assembly-CSharp","baseValue":1,"multiplier":1}'
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[14]
-      value: '"path":"m_stats.{\"SpeedMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
+      value: '"path":"m_stats.{\"RecoverTime\"}.baseValue","value":{"$id":0,"$type":"System.Single,
         mscorlib",1}'
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[15]
+      value: '"path":"m_stats.{\"RecoverTime\"}.multiplier","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[16]
+      value: '"path":"m_stats.{\"SpeedMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
+        Assembly-CSharp","baseValue":1,"multiplier":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[17]
+      value: '"path":"m_stats.{\"SpeedMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[18]
       value: '"path":"m_stats.{\"SpeedMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
         mscorlib",1}'
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.SerializationNodes.Array.data[3].Data
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[5].Data
-      value: SpeedMultiplier
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[12].Data
-      value: DamageMultiplier
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[18].Entry
+      propertyPath: serializationData.SerializationNodes.Array.data[39].Entry
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[19].Entry
+      propertyPath: serializationData.SerializationNodes.Array.data[40].Entry
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[19].Data
-      value: GoldMultiplier
+      propertyPath: serializationData.SerializationNodes.Array.data[40].Data
+      value: RecoverTime
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33cedad122473c140b618ef954c17f5c, type: 3}
@@ -1132,12 +1141,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 2
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.size
-      value: 6
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: m_cursorMaxDistance
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
       propertyPath: serializationData.Prefab
@@ -1145,42 +1158,19 @@ PrefabInstance:
       objectReference: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1,
         type: 3}
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 3561944106956106535, guid: d4233fcb35e022249ab1db14c3535528,
-        type: 3}
-    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 2661134112763916582, guid: f2562189a4694074681fcaaf6d78cee6,
-        type: 3}
-    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"m_weapon","value":{"$id":0,"$type":"SimpleWeapon, Assembly-CSharp","m_gunPrefab":$eref:0,"m_projectilePrefab":$eref:1,"m_ballsStatOffset":{"$type":"UnityEngine.Vector2,
-        UnityEngine.CoreModule",0.5,-0.2}}'
+      value: '"path":"m_weapon.m_ballsStatOffset","value":{"$id":0,"$type":"UnityEngine.Vector2,
+        UnityEngine.CoreModule",1.3,0.1}'
       objectReference: {fileID: 0}
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[1]
-      value: '"path":"m_weapon.m_ballsStatOffset","value":{"$id":0,"$type":"UnityEngine.Vector2,
-        UnityEngine.CoreModule",0,0}'
+      value: '"path":"m_weapon.m_ballsStatOffset.x","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1.3}'
       objectReference: {fileID: 0}
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[2]
-      value: '"path":"m_weapon.m_ballsStatOffset.x","value":{"$id":0,"$type":"System.Single,
-        mscorlib",0.5}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[3]
       value: '"path":"m_weapon.m_ballsStatOffset.y","value":{"$id":0,"$type":"System.Single,
-        mscorlib",-0.2}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[4]
-      value: '"path":"m_weapon.m_gunPrefab","value":$eref:0'
-      objectReference: {fileID: 0}
-    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[5]
-      value: '"path":"m_weapon.m_projectilePrefab","value":$eref:1'
+        mscorlib",0.1}'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
