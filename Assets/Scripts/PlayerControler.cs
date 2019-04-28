@@ -18,6 +18,19 @@ public class PlayerControler : MonoBehaviour
 
     Rigidbody2D m_rigidbody;
 
+    SubscriberList m_subscriberList = new SubscriberList();
+
+    private void Awake()
+    {
+        m_subscriberList.Add(new Event<TeleportPlayerEvent>.Subscriber(OnTeleport));
+        m_subscriberList.Subscribe();
+    }
+
+    private void OnDestroy()
+    {
+        m_subscriberList.Unsubscribe();
+    }
+
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
@@ -81,5 +94,10 @@ public class PlayerControler : MonoBehaviour
         int value = Mathf.CeilToInt(power * multiplier);
 
         PlayerStats.Instance().gold -= value;
+    }
+
+    void OnTeleport(TeleportPlayerEvent e)
+    {
+        transform.position = new Vector3(e.target.x, e.target.y, transform.position.z);
     }
 }

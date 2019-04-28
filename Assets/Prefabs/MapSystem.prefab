@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1892254137259240960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1892254137259240974}
+  - component: {fileID: 1892254137259240961}
+  m_Layer: 0
+  m_Name: MapSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1892254137259240974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892254137259240960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1892254137259240961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892254137259240960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8075eb2c9f920d4e8d9c991788ad415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_roomCount: 20
+  m_shopRoomCount: 2
+  m_roomSize: {x: 36, y: 22}
+  m_roomPrefabs:
+  - roomPrefab: {fileID: 4514650985963850729, guid: 67e0603eaa4b600409fc87961898318d,
+      type: 3}
+    type: 0
+  - roomPrefab: {fileID: 4514650985963850729, guid: 67e0603eaa4b600409fc87961898318d,
+      type: 3}
+    type: 3
+  - roomPrefab: {fileID: 4514650985963850729, guid: 67e0603eaa4b600409fc87961898318d,
+      type: 3}
+    type: 2
+  - roomPrefab: {fileID: 4514650985963850729, guid: 67e0603eaa4b600409fc87961898318d,
+      type: 3}
+    type: 1
+  m_topDoor: {fileID: 2163806557742856732, guid: 41ddfe54633602b41928ada2fb332434,
+    type: 3}
+  m_downDoor: {fileID: 6485071211494782202, guid: 168dc8e40bfac2b4390e41db45ce43cd,
+    type: 3}
+  m_leftDoor: {fileID: 6388454020618205643, guid: b80b3c63e60bc8544ac841d6b1e597a5,
+    type: 3}
+  m_rightDoor: {fileID: 1079850790870154014, guid: 094fc867cfc210c47b33416cc28b9229,
+    type: 3}
+  m_cameraMoveSpeed: 0.5
+  m_playerDoorDistance: 2

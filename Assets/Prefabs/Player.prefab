@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9bc090e7081667439c519d718894908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxSpeed: 4
-  m_acceleration: 50
+  m_maxSpeed: 10
+  m_acceleration: 100
   m_threshold: 0.1
 --- !u!61 &2233932899549449888
 BoxCollider2D:
@@ -60,7 +60,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2233932899549449900}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 27735c5912c800d478fec6ca8bfd2fd6, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -96,7 +96,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 27735c5912c800d478fec6ca8bfd2fd6, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &604867693
 MonoBehaviour:

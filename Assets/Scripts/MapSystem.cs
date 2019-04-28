@@ -55,12 +55,16 @@ public class MapSystem : MonoBehaviour
     [SerializeField] GameObject m_downDoor = null;
     [SerializeField] GameObject m_leftDoor = null;
     [SerializeField] GameObject m_rightDoor = null;
+    [SerializeField] float m_cameraMoveSpeed = 1;
+    [SerializeField] float m_playerDoorDistance = 1.0f;
     
     static MapSystem m_instance = null;
 
     List<RoomInstance> m_rooms = new List<RoomInstance>();
 
     Vector2Int m_currentRoom = new Vector2Int(0, 0);
+
+    SubscriberList m_subscriberList = new SubscriberList();
 
     public static MapSystem GetInstance()
     {
@@ -70,6 +74,14 @@ public class MapSystem : MonoBehaviour
     private void Awake()
     {
         m_instance = this;
+
+        m_subscriberList.Add(new Event<DoorUsedEvent>.Subscriber(OnDoorUse));
+        m_subscriberList.Subscribe();
+    }
+
+    private void OnDestroy()
+    {
+        m_subscriberList.Unsubscribe();
     }
 
     void Start()
@@ -226,6 +238,48 @@ public class MapSystem : MonoBehaviour
         instance.leftDoor = r.leftDoor;
         instance.rightDoor = r.rightDoor;
 
+        if(instance.upDoor)
+        {
+            var door = Instantiate(m_topDoor, room.transform);
+            door.transform.localPosition = new Vector3(0, m_roomSize.y / 2, -1);
+        }
+        if (instance.downDoor)
+        {
+            var door = Instantiate(m_downDoor, room.transform);
+            door.transform.localPosition = new Vector3(0, -m_roomSize.y / 2, -1);
+        }
+        if (instance.rightDoor)
+        {
+            var door = Instantiate(m_rightDoor, room.transform);
+            door.transform.localPosition = new Vector3(m_roomSize.x / 2, 0, -1);
+        }
+        if (instance.leftDoor)
+        {
+            var door = Instantiate(m_leftDoor, room.transform);
+            door.transform.localPosition = new Vector3(-m_roomSize.x / 2, 0, -1);
+        }
+
         m_rooms.Add(instance);
+    }
+
+    void OnDoorUse(DoorUsedEvent e)
+    {
+        m_currentRoom += e.direction;
+
+        var room = m_rooms.Find(x => { return x.x == m_currentRoom.x && x.y == m_currentRoom.y; });
+        if(room != null)
+        {
+            room.discovered = true;
+
+            Event<MoveCameraEvent>.Broadcast(new MoveCameraEvent(new Vector2(m_currentRoom.x * m_roomSize.x, m_currentRoom.y * m_roomSize.y), m_cameraMoveSpeed));
+
+            Vector2 targetPos = m_currentRoom * m_roomSize - e.direction * new Vector2(m_roomSize.x / 2 - m_playerDoorDistance, m_roomSize.y / 2 - m_playerDoorDistance);
+            if (e.direction.y < 0)
+                targetPos.y -= 2;
+
+            Event<TeleportPlayerEvent>.Broadcast(new TeleportPlayerEvent(targetPos));
+
+            Event<UpdateMinimapEvent>.Broadcast(new UpdateMinimapEvent(m_rooms, m_currentRoom));
+        }
     }
 }
