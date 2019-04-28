@@ -89,4 +89,16 @@ public class ButtonList : MonoBehaviour
         if (m_currentIndex >= 0)
             m_buttons[m_currentIndex].SetHovered();
     }
+
+    public void Remove(ButtonLogic button)
+    {
+        int index = ButtonIndex(button);
+        if (index < 0)
+            return;
+
+        if (m_currentIndex == index)
+            SetIndex(-1);
+
+        m_buttons.Remove(button);
+    }
 }

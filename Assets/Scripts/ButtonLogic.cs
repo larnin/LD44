@@ -17,6 +17,12 @@ public class ButtonLogic : MonoBehaviour
         SetIdle();
     }
 
+    private void OnDestroy()
+    {
+        if (m_buttonList != null)
+            m_buttonList.Remove(this);
+    }
+
     private void OnMouseEnter()
     {
         m_buttonList.Hover(this);
