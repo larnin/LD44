@@ -194,7 +194,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 100
+  m_FontSize: 90
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: f99d722ec2c8212409f06eaa5b57cd69, type: 3}
@@ -285,7 +285,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 100
+  m_FontSize: 90
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: f99d722ec2c8212409f06eaa5b57cd69, type: 3}
@@ -362,12 +362,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d9b265dfdc23a934db10e4b0113de750, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3d1c8465f045ee458e52d4d4d125e55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 4.99, y: 2.18}
+  m_Size: {x: 3.74, y: 0.85}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -499,7 +499,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &3613241213209455090
 BoxCollider2D:
   m_ObjectHideFlags: 0

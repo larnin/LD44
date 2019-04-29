@@ -97,7 +97,12 @@ public class SimpleWeapon : WeaponBase
         if (m_gunFire != null)
         {
             m_gunFire.SetActive(true);
-            DOVirtual.DelayedCall(0.1f, () => { m_gunFire.SetActive(false); });
+            DOVirtual.DelayedCall(0.1f, () => 
+            {
+                if (this == null)
+                    return;
+                m_gunFire.SetActive(false);
+            });
         }
     }
 }

@@ -24,14 +24,14 @@ public abstract class WeaponBase
 
     public virtual void OnEquip()
     {
-        if (m_isPlayerWeapon)
+        if (m_isPlayerWeapon && m_modifiers != null)
             foreach (var m in m_modifiers)
                 PlayerStats.Instance().AddStatModifier(m.Key, m.Value);
     }
 
     public virtual void OnDesequip()
     {
-        if (m_isPlayerWeapon)
+        if (m_isPlayerWeapon && m_modifiers != null)
             foreach (var m in m_modifiers)
                 PlayerStats.Instance().RemoveStatModifier(m.Key, m.Value);
     }

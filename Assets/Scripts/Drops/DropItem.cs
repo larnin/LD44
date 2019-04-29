@@ -38,6 +38,7 @@ public class DropItem : SerializedMonoBehaviour
         float speedMultiplier = 1 - m_dropTime / m_dropAnimationTime;
 
         m_rigidbody.velocity = m_dropDir * m_startDropSpeed * speedMultiplier;
+        Debug.Log(m_rigidbody.velocity);
         m_dropTime += Time.deltaTime;
     }
 

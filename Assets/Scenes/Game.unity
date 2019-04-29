@@ -618,6 +618,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DollarHard
       objectReference: {fileID: 0}
+    - target: {fileID: 4933683398024292287, guid: 7d59251e54d4b4e41bac62c96c2e7040,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4933683398024292226, guid: 7d59251e54d4b4e41bac62c96c2e7040,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1016,6 +1021,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piggy
       objectReference: {fileID: 0}
+    - target: {fileID: 1433490171985502253, guid: 7960597bbe1b3fa4c8e284fbaa5172a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1433490171985502254, guid: 7960597bbe1b3fa4c8e284fbaa5172a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1224,8 +1234,7 @@ PrefabInstance:
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
       propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]
       value: 
@@ -1275,83 +1284,13 @@ PrefabInstance:
       propertyPath: serializationData.SerializationNodes.Array.data[3].Data
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
+      propertyPath: m_weaponPrefab
+      value: 
+      objectReference: {fileID: 3613241213209455095, guid: 5c14d63484159f14aa300e68876031e7,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
---- !u!1001 &3613241211799938342
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3613241213209455095, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_Name
-      value: WeaponLoot1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455093, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3613241213209455092, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-      propertyPath: serializationData.Prefab
-      value: 
-      objectReference: {fileID: 3613241213209455092, guid: 5c14d63484159f14aa300e68876031e7,
-        type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5c14d63484159f14aa300e68876031e7, type: 3}
 --- !u!1001 &4933683398132454817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1363,6 +1302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dollar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933683398024292287, guid: 85a5729fb8a77214aba7f952c7a7602e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4933683398024292226, guid: 85a5729fb8a77214aba7f952c7a7602e,
         type: 3}
@@ -1450,16 +1394,6 @@ PrefabInstance:
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
       value: '"path":"m_weapon.m_projectilePrefab","value":$eref:0'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4933683398024292227, guid: 85a5729fb8a77214aba7f952c7a7602e,
-        type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[8].Entry
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4933683398024292227, guid: 85a5729fb8a77214aba7f952c7a7602e,
-        type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[8].Data
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a5729fb8a77214aba7f952c7a7602e, type: 3}
