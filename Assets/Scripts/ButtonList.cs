@@ -8,6 +8,8 @@ public class ButtonList : MonoBehaviour
     const string pressButton = "Submit";
 
     [SerializeField] List<ButtonLogic> m_buttons = new List<ButtonLogic>();
+    [SerializeField] AudioClip m_moveSound = null;
+    [SerializeField] AudioClip m_pressSound = null;
 
     int m_currentIndex = -1;
 
@@ -62,6 +64,8 @@ public class ButtonList : MonoBehaviour
         button.SetPressed();
 
         Event<ButtonPressEvent>.Broadcast(new ButtonPressEvent(index));
+
+        SoundSystem.Instance().play(m_pressSound);
     }
 
     public void Idle(ButtonLogic button)
@@ -87,7 +91,10 @@ public class ButtonList : MonoBehaviour
         m_currentIndex = index;
 
         if (m_currentIndex >= 0)
+        {
             m_buttons[m_currentIndex].SetHovered();
+            SoundSystem.Instance().play(m_moveSound, 0.5f, true);
+        }
     }
 
     public void Remove(ButtonLogic button)

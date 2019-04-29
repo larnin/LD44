@@ -15,6 +15,9 @@ public class TitleAppear : MonoBehaviour
     [SerializeField] Camera m_camera = null;
     [SerializeField] float m_shakePower = 1;
     [SerializeField] float m_shakeTime = 0.2f;
+    [SerializeField] AudioClip m_bamSound = null;
+    [SerializeField] AudioClip m_punchline = null;
+    [SerializeField] float m_punchlineDelay = 1;
 
     bool m_ready = false;
     float m_shakeDuration = 0;
@@ -26,7 +29,16 @@ public class TitleAppear : MonoBehaviour
         transform.position = new Vector3(m_startPos.x, m_startPos.y, 0);
         transform.localScale = new Vector3(m_startScale, m_startScale, m_startScale);
 
-        transform.DOMove(pos, m_duration).OnComplete(() => { m_ready = true; });
+        transform.DOMove(pos, m_duration).OnComplete(() => {
+            m_ready = true;
+
+            SoundSystem.Instance().play(m_bamSound);
+            DOVirtual.DelayedCall(m_punchlineDelay, () => {
+                if (this == null)
+                    return;
+                SoundSystem.Instance().play(m_punchline);
+            });
+        });
         transform.DOScale(scale, m_duration);
     }
 
@@ -39,6 +51,7 @@ public class TitleAppear : MonoBehaviour
         if(m_shakeDuration > m_shakeTime)
         {
             m_camera.transform.position = new Vector3(0, 0, m_camera.transform.position.z);
+            
             return;
         }
 
