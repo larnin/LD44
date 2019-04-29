@@ -5,7 +5,7 @@ public class MusicPlayerOnEnable : MonoBehaviour
 {
     [SerializeField] AudioClip m_clip = null;
     
-    void OnEnable()
+    void Start()
     {
         if (m_clip != null)
             SoundSystem.Instance().PlayMusic(m_clip);
