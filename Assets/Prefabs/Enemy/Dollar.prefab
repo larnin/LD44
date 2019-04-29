@@ -131,8 +131,8 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 3561944106956106535, guid: 4bd13fb88c301814285afb2c9cee449f, type: 3}
-    - {fileID: 2661134112763916582, guid: f2562189a4694074681fcaaf6d78cee6, type: 3}
+    - {fileID: 3561944106956106535, guid: 7b1939ed7b21da04a8aad4a581617b8a, type: 3}
+    - {fileID: 8870761549202993873, guid: 50999fa8007255b40b27e643f8d18ff0, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -140,7 +140,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: m_weapon
       Entry: 7
-      Data: 0|SimpleWeapon, Assembly-CSharp
+      Data: 0|ContinuousWeapon, Assembly-CSharp
     - Name: m_modifiers
       Entry: 7
       Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[StatModifier,
@@ -172,13 +172,16 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1.3
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.1
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_deltaTime
+      Entry: 4
+      Data: 0.5
     - Name: 
       Entry: 8
       Data: 
@@ -265,5 +268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d8f702f4aea4e4da59d67f37d08757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxLife: 1
+  m_loots:
+  - dropPrefab: {fileID: 1749865779747965901, guid: a72cd545537db174b8340c378b7cc3dc,
+      type: 3}
+    countMin: 2
+    countMax: 3
+    weight: 1
+  m_lootCount: 1
+  m_maxLife: 5
   m_contactDamage: 1

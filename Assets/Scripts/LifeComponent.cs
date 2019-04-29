@@ -1,8 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System;
+using NRand;
 
 public class LifeComponent : MonoBehaviour
 {
+    [Serializable]
+    class LootInfo
+    {
+        public GameObject dropPrefab = null;
+        public int countMin = 1;
+        public int countMax = 1;
+        public float weight = 1;
+    }
+
+    [SerializeField] List<LootInfo> m_loots = new List<LootInfo>();
+    [SerializeField] int m_lootCount = 1;
     [SerializeField] float m_maxLife = 1;
     [SerializeField] float m_contactDamage = 1;
     float m_life = 0;
@@ -38,5 +52,28 @@ public class LifeComponent : MonoBehaviour
     void OnKill()
     {
         Event<EnemyKillEvent>.Broadcast(new EnemyKillEvent(gameObject));
+        CreateLoot();
+    }
+
+    void CreateLoot()
+    {
+        if (m_loots.Count == 0 || m_lootCount <= 0)
+            return;
+
+        List<float> weights = new List<float>();
+        for (int i = 0; i < m_loots.Count; i++)
+            weights.Add(m_loots[i].weight);
+
+        for (int i = 0; i < m_lootCount; i++)
+        {
+            int index = new DiscreteDistribution(weights).Next(new StaticRandomGenerator<MT19937>());
+            int nb = new UniformIntDistribution(m_loots[index].countMin, m_loots[index].countMax + 1).Next(new StaticRandomGenerator<MT19937>());
+
+            for (int j = 0; j < nb; j++)
+            {
+                var obj = Instantiate(m_loots[index].dropPrefab);
+                obj.transform.position = transform.position;
+            }
+        }
     }
 }

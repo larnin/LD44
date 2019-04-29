@@ -5,7 +5,6 @@ using NRand;
 public class DropItemGold : DropItem
 {
     [SerializeField] int value = 0;
-    [SerializeField] GameObject m_feedbackPrefab = null;
 
     public override void ApplyLoot(GameObject player)
     {
@@ -16,10 +15,5 @@ public class DropItemGold : DropItem
             finalGold++;
 
         PlayerStats.Instance().gold += Mathf.FloorToInt(finalGold);
-
-        if(m_feedbackPrefab)
-        {
-            Instantiate(m_feedbackPrefab, player.transform);
-        }
     }
 }

@@ -269,6 +269,13 @@ public class MapSystem : MonoBehaviour
         var room = m_rooms.Find(x => { return x.x == m_currentRoom.x && x.y == m_currentRoom.y; });
         if(room != null)
         {
+            if (!room.discovered)
+            {
+                var spawns = room.room.GetComponentsInChildren<SpawnPoint>();
+                for (int i = 0; i < spawns.Length; i++)
+                    spawns[i].Spawn();
+            }
+
             room.discovered = true;
 
             Event<MoveCameraEvent>.Broadcast(new MoveCameraEvent(new Vector2(m_currentRoom.x * m_roomSize.x, m_currentRoom.y * m_roomSize.y), m_cameraMoveSpeed));
