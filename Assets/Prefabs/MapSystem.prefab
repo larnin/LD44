@@ -59,6 +59,15 @@ MonoBehaviour:
   - roomPrefab: {fileID: 4514650985963850729, guid: 67e0603eaa4b600409fc87961898318d,
       type: 3}
     type: 1
+  - roomPrefab: {fileID: 4514650985963850729, guid: aa2fb2440fd32514688f1a42a47f5729,
+      type: 3}
+    type: 0
+  - roomPrefab: {fileID: 4514650985963850729, guid: 8db70093914fb694ca076fdcdbbfec71,
+      type: 3}
+    type: 0
+  - roomPrefab: {fileID: 4514650985963850729, guid: 5a9fc8e84c57d9043977930f9b13b414,
+      type: 3}
+    type: 0
   m_topDoor: {fileID: 2163806557742856732, guid: 41ddfe54633602b41928ada2fb332434,
     type: 3}
   m_downDoor: {fileID: 6485071211494782202, guid: 168dc8e40bfac2b4390e41db45ce43cd,

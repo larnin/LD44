@@ -103,7 +103,8 @@ public class SimpleWeapon : WeaponBase
             {
                 if (this == null)
                     return;
-                m_gunFire.SetActive(false);
+                if(m_gunFire != null)
+                    m_gunFire.SetActive(false);
             });
         }
 
