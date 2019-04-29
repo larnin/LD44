@@ -313,5 +313,5 @@ MonoBehaviour:
     weight: 1
   m_lootCount: 1
   m_maxLife: 10
-  m_contactDamage: 2
+  m_contactDamage: 8
   m_deathSound: {fileID: 8300000, guid: 25d3938025df43e40b851fd2015411cf, type: 3}
