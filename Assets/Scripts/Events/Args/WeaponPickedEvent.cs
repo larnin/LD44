@@ -7,12 +7,12 @@ using UnityEngine;
 
 public class WeaponPickedEvent : EventArgs
 {
-    public WeaponPickedEvent(WeaponBase _weapon, GameObject _drop)
+    public WeaponPickedEvent(WeaponBase _weapon, int _dropIndex)
     {
         weapon = _weapon;
-        drop = _drop;
+        dropIndex = _dropIndex;
     }
 
     public WeaponBase weapon;
-    public GameObject drop;
+    public int dropIndex;
 }

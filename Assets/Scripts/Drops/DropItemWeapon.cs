@@ -4,10 +4,10 @@ using System.Collections;
 public class DropItemWeapon : DropItem
 {
     [SerializeField] WeaponBase m_weapon = null;
-    [SerializeField] GameObject m_thisPrefab = null;
+    [SerializeField] int m_dropIndex = 0;
 
     public override void ApplyLoot(GameObject player)
     {
-        Event<WeaponPickedEvent>.Broadcast(new WeaponPickedEvent(m_weapon, m_thisPrefab));
+        Event<WeaponPickedEvent>.Broadcast(new WeaponPickedEvent(m_weapon, m_dropIndex));
     }
 }

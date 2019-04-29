@@ -9,7 +9,7 @@ public class DefaultStats : SerializedMonoBehaviour
     [SerializeField] int m_baseGold = 5;
     [SerializeField] bool m_debugStats = false;
     
-    private void Awake()
+    private void Start()
     {
         foreach(var s in m_stats)
         {
