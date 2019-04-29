@@ -32,6 +32,9 @@ public class PiggyControler : MonoBehaviour
 
     void Update()
     {
+        if (PlayerControler.Instance() == null)
+            return;
+
         m_jumpTimer -= Time.deltaTime;
 
         if(m_jumpTimer < 0 && PlayerControler.Instance() != null && !m_jumping)

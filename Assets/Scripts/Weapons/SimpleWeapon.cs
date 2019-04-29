@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
+using NRand;
 
 public class SimpleWeapon : WeaponBase
 {
     [SerializeField] GameObject m_gunPrefab = null;
     [SerializeField] GameObject m_projectilePrefab = null;
     [SerializeField] Vector2 m_ballsStatOffset = new Vector2(0, 0);
+    [SerializeField] List<AudioClip> m_bulletSounds = new List<AudioClip>();
 
     GameObject m_gun;
     GameObject m_gunFire;
@@ -104,5 +106,8 @@ public class SimpleWeapon : WeaponBase
                 m_gunFire.SetActive(false);
             });
         }
+
+        var index = new UniformIntDistribution(0, m_bulletSounds.Count).Next(new StaticRandomGenerator<MT19937>());
+        SoundSystem.Instance().play(m_bulletSounds[index], 0.5f, true);
     }
 }

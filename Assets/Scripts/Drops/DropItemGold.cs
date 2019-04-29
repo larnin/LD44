@@ -8,6 +8,8 @@ public class DropItemGold : DropItem
 
     public override void ApplyLoot(GameObject player)
     {
+        base.ApplyLoot(player);
+
         float goldStat = PlayerStats.Instance().GetStatValue("GoldMultiplier");
         float finalGold = value * goldStat;
         float fPart = finalGold - Mathf.Floor(finalGold);

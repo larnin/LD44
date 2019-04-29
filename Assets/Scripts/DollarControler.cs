@@ -36,6 +36,9 @@ public class DollarControler : SerializedMonoBehaviour
 
     void Update()
     {
+        if (PlayerControler.Instance() == null)
+            return;
+
         m_timer -= Time.deltaTime;
 
         if (m_stopped)

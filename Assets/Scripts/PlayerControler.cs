@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NRand;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] float m_blinkTime = 10.0f;
     [SerializeField] Material m_mat = null;
     [SerializeField] GameObject m_goldGainPrefab = null;
+    [SerializeField] AudioClip m_deathSound = null;
+    [SerializeField] List<AudioClip> m_footSteps = new List<AudioClip>();
+    [SerializeField] float m_stepDistance = 0.5f;
 
     Vector2 m_speed = new Vector2(0, 0);
     Vector2 m_input = new Vector2(0, 0);
@@ -25,6 +29,9 @@ public class PlayerControler : MonoBehaviour
     SubscriberList m_subscriberList = new SubscriberList();
 
     float m_invincibleTime = 0;
+
+    float m_totalDistance = 0;
+    Vector2 m_oldPosition = new Vector2();
 
     static PlayerControler m_instance;
 
@@ -51,6 +58,8 @@ public class PlayerControler : MonoBehaviour
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_animator = GetComponent<Animator>();
+
+        m_oldPosition = transform.position;
     }
 
     void Update()
@@ -73,6 +82,17 @@ public class PlayerControler : MonoBehaviour
         {
             m_mat.SetColor("_AdditiveColor", Color.black);
         }
+
+        Vector2 pos = transform.position;
+        m_totalDistance += (pos - m_oldPosition).magnitude;
+        if(m_totalDistance > m_stepDistance)
+        {
+            m_totalDistance -= m_stepDistance;
+            int index = new UniformIntDistribution(0, m_footSteps.Count).Next(new StaticRandomGenerator<MT19937>());
+            SoundSystem.Instance().play(m_footSteps[index], 0.05f, true);
+        }
+
+        m_oldPosition = pos;
     }
 
     void FixedUpdate()
@@ -135,18 +155,29 @@ public class PlayerControler : MonoBehaviour
     void OnTeleport(TeleportPlayerEvent e)
     {
         transform.position = new Vector3(e.target.x, e.target.y, transform.position.z);
+        m_oldPosition = transform.position;
     }
 
     void OnGoldGain(GoldChangedEvent e)
     {
-        if (m_goldGainPrefab == null)
-            return;
+        if (m_goldGainPrefab != null)
+        {
+            var obj = Instantiate(m_goldGainPrefab);
+            obj.transform.position = transform.position;
 
-        var obj = Instantiate(m_goldGainPrefab);
-        obj.transform.position = transform.position;
+            var gain = obj.GetComponentInChildren<GoldGain>();
+            if (gain != null)
+                gain.SetValue(e.offset);
+        }
 
-        var gain = obj.GetComponentInChildren<GoldGain>();
-        if (gain != null)
-            gain.SetValue(e.offset);
+        if (e.value <= 0)
+            OnDeath();
+    }
+
+    void OnDeath()
+    {
+
+        SoundSystem.Instance().play(m_deathSound, 0.5f, true);
+        Destroy(gameObject);
     }
 }

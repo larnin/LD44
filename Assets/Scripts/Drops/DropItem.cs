@@ -9,6 +9,7 @@ public class DropItem : SerializedMonoBehaviour
 
     [SerializeField] float m_startDropSpeed = 1.5f;
     [SerializeField] float m_dropAnimationTime = 1.0f;
+    [SerializeField] AudioClip m_pickSound = null;
     
 
     Rigidbody2D m_rigidbody = null;
@@ -44,7 +45,7 @@ public class DropItem : SerializedMonoBehaviour
 
     public virtual void ApplyLoot(GameObject player)
     {
-
+        SoundSystem.Instance().play(m_pickSound, 0.5f, true);
     }
 
     public void ShowTooltip()

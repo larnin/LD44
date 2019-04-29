@@ -19,6 +19,8 @@ public class LifeComponent : MonoBehaviour
     [SerializeField] int m_lootCount = 1;
     [SerializeField] float m_maxLife = 1;
     [SerializeField] float m_contactDamage = 1;
+    [SerializeField] AudioClip m_deathSound = null;
+
     float m_life = 0;
 
     private void Awake()
@@ -53,6 +55,7 @@ public class LifeComponent : MonoBehaviour
     {
         Event<EnemyKillEvent>.Broadcast(new EnemyKillEvent(gameObject));
         CreateLoot();
+        SoundSystem.Instance().play(m_deathSound, 0.5f, true);
     }
 
     void CreateLoot()

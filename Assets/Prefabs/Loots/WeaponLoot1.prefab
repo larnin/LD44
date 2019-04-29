@@ -426,6 +426,18 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 3561944106956106535, guid: d4233fcb35e022249ab1db14c3535528, type: 3}
     - {fileID: 8870761549202993873, guid: cee703e751bd1824f9cbc3ace46c3937, type: 3}
+    - {fileID: 8300000, guid: a9d6554c64db55c449a49d2dfa58d0bb, type: 3}
+    - {fileID: 8300000, guid: 13f39ad04b050334f9bfb34f54011650, type: 3}
+    - {fileID: 8300000, guid: 2645f732cddba95438d7e9b018382c38, type: 3}
+    - {fileID: 8300000, guid: 5dc465762bef35845af356b28c7a62a2, type: 3}
+    - {fileID: 8300000, guid: a4dcbb6c38d61ca41ade9f2256d9a3e7, type: 3}
+    - {fileID: 8300000, guid: 668268ebfeb4fa345a75245315927811, type: 3}
+    - {fileID: 8300000, guid: 8bbc10453ce8f764cb3688b8f32e8a8d, type: 3}
+    - {fileID: 8300000, guid: 39b0e627e2c062b4b9f1f564c4eaacee, type: 3}
+    - {fileID: 8300000, guid: c3f1e96bd325fb84f939e945f9a1ac71, type: 3}
+    - {fileID: 8300000, guid: 060d951c763ad904291c3c0b88c22818, type: 3}
+    - {fileID: 8300000, guid: 42a05cbc46419e44da51b821e5d769e5, type: 3}
+    - {fileID: 8300000, guid: db2af327fa1f0c8488808d1bc1085261, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -472,12 +484,62 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_bulletSounds
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[UnityEngine.AudioClip, UnityEngine.AudioModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 12
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 10
+      Data: 11
+    - Name: 
+      Entry: 10
+      Data: 12
+    - Name: 
+      Entry: 10
+      Data: 13
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
   autoloot: 0
   m_startDropSpeed: 2.5
   m_dropAnimationTime: 1.5
+  m_pickSound: {fileID: 8300000, guid: 76861ffea8445a845816f796b06400fd, type: 3}
   m_dropIndex: 0
 --- !u!50 &3613241213209455091
 Rigidbody2D:

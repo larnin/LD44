@@ -8,6 +8,8 @@ public class DropItemWeapon : DropItem
 
     public override void ApplyLoot(GameObject player)
     {
+        base.ApplyLoot(player);
+
         Event<WeaponPickedEvent>.Broadcast(new WeaponPickedEvent(m_weapon, m_dropIndex));
     }
 }

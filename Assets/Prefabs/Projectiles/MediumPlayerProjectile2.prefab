@@ -143,5 +143,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_baseDamage: 3
   isPlayerProjectile: 1
-  m_speed: 10
+  m_speed: 12
   m_maxLife: 5

@@ -426,6 +426,9 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 3561944106956106535, guid: 4bd13fb88c301814285afb2c9cee449f, type: 3}
     - {fileID: 2686161269637465644, guid: 172c5550df31a2041bb138ae6ac97871, type: 3}
+    - {fileID: 8300000, guid: e7f4c28c63a3a514ebac501c28de51c2, type: 3}
+    - {fileID: 8300000, guid: 9bb90917119a3194ca92650510644db5, type: 3}
+    - {fileID: 8300000, guid: 12fccb30136061a43854cef72564bc50, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -472,12 +475,35 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_bulletSounds
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[UnityEngine.AudioClip, UnityEngine.AudioModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
   autoloot: 0
   m_startDropSpeed: 2.5
   m_dropAnimationTime: 1.5
+  m_pickSound: {fileID: 8300000, guid: 39360fa659ea15246b480ad8937c0442, type: 3}
   m_dropIndex: 2
 --- !u!50 &3613241213209455091
 Rigidbody2D:

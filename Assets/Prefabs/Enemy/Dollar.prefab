@@ -133,6 +133,12 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 3561944106956106535, guid: 7b1939ed7b21da04a8aad4a581617b8a, type: 3}
     - {fileID: 8870761549202993873, guid: 50999fa8007255b40b27e643f8d18ff0, type: 3}
+    - {fileID: 8300000, guid: e7f4c28c63a3a514ebac501c28de51c2, type: 3}
+    - {fileID: 8300000, guid: c892f38a111a311489920e6d8c8cdeac, type: 3}
+    - {fileID: 8300000, guid: bc77e7e3a38bd5a47919533f981e2282, type: 3}
+    - {fileID: 8300000, guid: 14abdbac9b807b1439b82d1c0360eb97, type: 3}
+    - {fileID: 8300000, guid: 5a0d0edf150fa6c4f9f2c120bde6fc00, type: 3}
+    - {fileID: 8300000, guid: cd8f4827de0a6424fa8d9f61b72dc1f7, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -176,6 +182,37 @@ MonoBehaviour:
     - Name: 
       Entry: 4
       Data: 0.1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_bulletSounds
+      Entry: 7
+      Data: 3|System.Collections.Generic.List`1[[UnityEngine.AudioClip, UnityEngine.AudioModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 13
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -277,3 +314,4 @@ MonoBehaviour:
   m_lootCount: 1
   m_maxLife: 5
   m_contactDamage: 1
+  m_deathSound: {fileID: 8300000, guid: 7af391abba1bfee49924adbdd5a5aafc, type: 3}

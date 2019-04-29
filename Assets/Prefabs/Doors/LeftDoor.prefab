@@ -75,6 +75,9 @@ MonoBehaviour:
   m_closedDoor: {fileID: 6388454022065713874}
   m_openDoor: {fileID: 6388454021048487950}
   m_direction: {x: -1, y: 0}
+  m_openSound: {fileID: 8300000, guid: 6eed4ca32ccb4c5449298d39353aa0dc, type: 3}
+  m_closeSound: {fileID: 8300000, guid: 28db7cea6d1c5454794d2673acf5a8a5, type: 3}
+  m_moveSound: {fileID: 8300000, guid: f1c519471e32d1b47bfd1e6a9fcaa005, type: 3}
 --- !u!1 &6388454021048487950
 GameObject:
   m_ObjectHideFlags: 0

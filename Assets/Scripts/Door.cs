@@ -6,6 +6,9 @@ public class Door : MonoBehaviour
     [SerializeField] GameObject m_closedDoor = null;
     [SerializeField] GameObject m_openDoor = null;
     [SerializeField] Vector2Int m_direction = new Vector2Int(0, 0);
+    [SerializeField] AudioClip m_openSound = null;
+    [SerializeField] AudioClip m_closeSound = null;
+    [SerializeField] AudioClip m_moveSound = null;
 
     bool m_doorState = false; //closed but open on start
 
@@ -25,7 +28,10 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
-        OnAllEnemyKill(new AllEnemyKilledEvent());
+        m_doorState = true;
+
+        m_closedDoor.SetActive(false);
+        m_openDoor.SetActive(true);
     }
 
     void OnAllEnemyKill(AllEnemyKilledEvent e)
@@ -37,6 +43,8 @@ public class Door : MonoBehaviour
 
         m_closedDoor.SetActive(false);
         m_openDoor.SetActive(true);
+
+        SoundSystem.Instance().play(m_openSound);
     }
 
     void OnEnemySpawn(EnemySpawnEvent e)
@@ -48,6 +56,8 @@ public class Door : MonoBehaviour
 
         m_closedDoor.SetActive(true);
         m_openDoor.SetActive(false);
+
+        SoundSystem.Instance().play(m_closeSound);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,5 +69,7 @@ public class Door : MonoBehaviour
             return;
 
         Event<DoorUsedEvent>.Broadcast(new DoorUsedEvent(m_direction));
+
+        SoundSystem.Instance().play(m_moveSound, 0.4f, true);
     }
 }

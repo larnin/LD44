@@ -8,6 +8,8 @@ public class ShopItem : DropItem
     
     public override void ApplyLoot(GameObject player)
     {
+        base.ApplyLoot(player);
+
         var obj = Instantiate(m_dropItem);
         obj.transform.position = transform.position;
 
