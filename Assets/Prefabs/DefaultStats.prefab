@@ -198,4 +198,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  m_baseGold: 100
   m_debugStats: 0

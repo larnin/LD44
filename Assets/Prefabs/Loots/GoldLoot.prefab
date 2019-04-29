@@ -59,7 +59,7 @@ MonoBehaviour:
   m_startDropSpeed: 2
   m_dropAnimationTime: 1
   m_pickSound: {fileID: 8300000, guid: 62842517b5524bd4baa342995331752a, type: 3}
-  value: 1
+  value: 5
 --- !u!50 &1749865779747965903
 Rigidbody2D:
   serializedVersion: 4

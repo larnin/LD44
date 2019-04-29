@@ -274,6 +274,9 @@ public class MapSystem : MonoBehaviour
                 var spawns = room.room.GetComponentsInChildren<SpawnPoint>();
                 for (int i = 0; i < spawns.Length; i++)
                     spawns[i].Spawn();
+
+                if (room.type == RoomType.BossRoom)
+                    Event<VictoryEvent>.Broadcast(new VictoryEvent());
             }
 
             room.discovered = true;

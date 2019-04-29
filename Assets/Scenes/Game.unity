@@ -2398,6 +2398,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1480544687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1480544689}
+  - component: {fileID: 1480544688}
+  m_Layer: 0
+  m_Name: DefeatAndVictory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1480544688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480544687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80875442ecadba64bab979ad05591e1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_stateDelay: 2
+  m_defeatSong: {fileID: 8300000, guid: 9110b4dc58805e845ae438f189001980, type: 3}
+  m_victorySong: {fileID: 8300000, guid: 6ce8c0bf59709de4796d5ddc48b7d6b9, type: 3}
+--- !u!4 &1480544689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480544687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1434718, y: -0.42027253, z: -4.5266495}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1534529666
 GameObject:
   m_ObjectHideFlags: 0
@@ -3566,11 +3612,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.size
-      value: 48
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 0}
@@ -3702,28 +3743,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[3].Data
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[39].Entry
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[40].Entry
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[40].Data
-      value: RecoverTime
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
       propertyPath: m_baseGold
-      value: 50000
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33cedad122473c140b618ef954c17f5c, type: 3}
@@ -3793,6 +3814,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892254137259240961, guid: c1b3dda0f6ec16c4dbef74748acb97c4,
+        type: 3}
+      propertyPath: m_roomCount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b3dda0f6ec16c4dbef74748acb97c4, type: 3}
