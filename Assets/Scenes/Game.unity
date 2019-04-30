@@ -422,6 +422,8 @@ MonoBehaviour:
     - {fileID: 7288696087623736586, guid: 028b15e5b08b30e4092615cde5a8123c, type: 3}
     - {fileID: -8552547428000156157, guid: 028b15e5b08b30e4092615cde5a8123c, type: 3}
     - {fileID: 3441994447858348693, guid: 028b15e5b08b30e4092615cde5a8123c, type: 3}
+    - {fileID: 21300000, guid: 22fd775651f43d04394b29d6dc12547b, type: 3}
+    - {fileID: 21300000, guid: 073a1c88837fdd043868cef6060cade4, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -538,8 +540,8 @@ MonoBehaviour:
       Entry: 10
       Data: 5
     - Name: icon
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
@@ -571,8 +573,8 @@ MonoBehaviour:
       Entry: 10
       Data: 2
     - Name: icon
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 7
     - Name: 
       Entry: 8
       Data: 
@@ -3150,7 +3152,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9f6ff266743526f4da3b2ddab08b4cd9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1152c2d210fe0674591ace5c3596fbbf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3170,7 +3172,7 @@ Transform:
   m_GameObject: {fileID: 1774877917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -3815,11 +3817,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1892254137259240961, guid: c1b3dda0f6ec16c4dbef74748acb97c4,
-        type: 3}
-      propertyPath: m_roomCount
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b3dda0f6ec16c4dbef74748acb97c4, type: 3}
 --- !u!1001 &2233932899080045259
@@ -3894,15 +3891,5 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 604867688, guid: b03f16777fd49ea41af12e2759fa53a1,
         type: 3}
-    - target: {fileID: 2233932899549449888, guid: b03f16777fd49ea41af12e2759fa53a1,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2233932899549449888, guid: b03f16777fd49ea41af12e2759fa53a1,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.17
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b03f16777fd49ea41af12e2759fa53a1, type: 3}
