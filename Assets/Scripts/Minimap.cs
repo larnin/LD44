@@ -20,8 +20,9 @@ public class Minimap : SerializedMonoBehaviour
 
     [SerializeField] Dictionary<MapSystem.RoomType, SpriteInfos> m_sprites = new Dictionary<MapSystem.RoomType, SpriteInfos>();
     [SerializeField] Sprite m_selectorSprite = null;
-    [SerializeField] GameObject spritePrefab = null;
-    [SerializeField] Vector2 roomSize = new Vector2(1, 1);
+    [SerializeField] GameObject m_spritePrefab = null;
+    [SerializeField] Vector2 m_roomSize = new Vector2(1, 1);
+    [SerializeField] Color m_hiddenColor = Color.white;
 
     SubscriberList m_subscriberList = new SubscriberList();
     List<GameObject> m_images = new List<GameObject>();
@@ -29,6 +30,7 @@ public class Minimap : SerializedMonoBehaviour
     private void Awake()
     {
         m_subscriberList.Add(new Event<UpdateMinimapEvent>.Subscriber(OnMapUpdate));
+        m_subscriberList.Add(new Event<HideMapEvent>.Subscriber(OnHideMap));
         m_subscriberList.Subscribe();
     }
 
@@ -105,11 +107,11 @@ public class Minimap : SerializedMonoBehaviour
         Vector2 pos = new Vector2(0, 0);
         pos.x = -bounds.width + room.x - bounds.x;
         pos.y = room.y - bounds.y + 1;
-        pos *= roomSize;
+        pos *= m_roomSize;
 
         var roomRect = spriteSet.fullRoom.textureRect;
 
-        var imageObj = Instantiate(spritePrefab, transform);
+        var imageObj = Instantiate(m_spritePrefab, transform);
         imageObj.transform.localPosition = pos;
 
         var image = imageObj.GetComponent<Image>();
@@ -121,9 +123,9 @@ public class Minimap : SerializedMonoBehaviour
 
         if(room.upDoor)
         {
-            var doorObj = Instantiate(spritePrefab, imageObj.transform);
+            var doorObj = Instantiate(m_spritePrefab, imageObj.transform);
 
-            Vector2 doorPos = new Vector2(0, (1 - spriteSet.doorUp.textureRect.height / roomRect.height) * roomSize.y / 2);
+            Vector2 doorPos = new Vector2(0, (1 - spriteSet.doorUp.textureRect.height / roomRect.height) * m_roomSize.y / 2);
             doorObj.transform.localPosition = doorPos;
          
             var doorImage = doorObj.GetComponent<Image>();
@@ -136,9 +138,9 @@ public class Minimap : SerializedMonoBehaviour
 
         if (room.downDoor)
         {
-            var doorObj = Instantiate(spritePrefab, imageObj.transform);
+            var doorObj = Instantiate(m_spritePrefab, imageObj.transform);
 
-            Vector2 doorPos = new Vector2(0, -(1 - spriteSet.doorDown.textureRect.height / roomRect.height) * roomSize.y / 2);
+            Vector2 doorPos = new Vector2(0, -(1 - spriteSet.doorDown.textureRect.height / roomRect.height) * m_roomSize.y / 2);
             doorObj.transform.localPosition = doorPos;
 
             var doorImage = doorObj.GetComponent<Image>();
@@ -151,9 +153,9 @@ public class Minimap : SerializedMonoBehaviour
 
         if (room.leftDoor)
         {
-            var doorObj = Instantiate(spritePrefab, imageObj.transform);
+            var doorObj = Instantiate(m_spritePrefab, imageObj.transform);
 
-            Vector2 doorPos = new Vector2(-(1 - spriteSet.doorLeft.textureRect.width / roomRect.width) * roomSize.x / 2, 0);
+            Vector2 doorPos = new Vector2(-(1 - spriteSet.doorLeft.textureRect.width / roomRect.width) * m_roomSize.x / 2, 0);
             doorObj.transform.localPosition = doorPos;
 
             var doorImage = doorObj.GetComponent<Image>();
@@ -166,9 +168,9 @@ public class Minimap : SerializedMonoBehaviour
 
         if (room.rightDoor)
         {
-            var doorObj = Instantiate(spritePrefab, imageObj.transform);
+            var doorObj = Instantiate(m_spritePrefab, imageObj.transform);
 
-            Vector2 doorPos = new Vector2((1 - spriteSet.doorRight.textureRect.width / roomRect.width) * roomSize.x / 2, 0);
+            Vector2 doorPos = new Vector2((1 - spriteSet.doorRight.textureRect.width / roomRect.width) * m_roomSize.x / 2, 0);
             doorObj.transform.localPosition = doorPos;
 
             var doorImage = doorObj.GetComponent<Image>();
@@ -181,7 +183,7 @@ public class Minimap : SerializedMonoBehaviour
 
         if(spriteSet.icon != null)
         {
-            var icon = Instantiate(spritePrefab, imageObj.transform);
+            var icon = Instantiate(m_spritePrefab, imageObj.transform);
             
             icon.transform.localPosition = new Vector2(0, 0);
 
@@ -198,9 +200,9 @@ public class Minimap : SerializedMonoBehaviour
         Vector2 pos = new Vector2(0, 0);
         pos.x = -bounds.width + current.x - bounds.x;
         pos.y = current.y - bounds.y + 1;
-        pos *= roomSize;
+        pos *= m_roomSize;
 
-        var imageObj = Instantiate(spritePrefab, transform);
+        var imageObj = Instantiate(m_spritePrefab, transform);
         imageObj.transform.localPosition = pos;
 
         var image = imageObj.GetComponent<Image>();
@@ -208,5 +210,17 @@ public class Minimap : SerializedMonoBehaviour
         image.SetNativeSize();
 
         m_images.Add(imageObj);
+    }
+
+    void OnHideMap(HideMapEvent e)
+    {
+        Color c = e.hide ? m_hiddenColor : Color.white;
+
+        for(int i = 0; i < m_images.Count; i++)
+        {
+            var img = m_images[i].GetComponent<Image>();
+            if (img != null)
+                img.color = c;
+        }
     }
 }

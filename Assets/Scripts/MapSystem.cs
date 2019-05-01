@@ -157,9 +157,6 @@ public class MapSystem : MonoBehaviour
 
         m_rooms[0].discovered = true;
 
-        for (int i = 0; i < m_rooms.Count; i++)
-            m_rooms[i].discovered = true;
-
         Event<UpdateMinimapEvent>.Broadcast(new UpdateMinimapEvent(m_rooms, m_currentRoom));
     }
 
