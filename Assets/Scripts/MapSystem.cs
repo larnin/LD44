@@ -57,6 +57,7 @@ public class MapSystem : MonoBehaviour
     [SerializeField] GameObject m_rightDoor = null;
     [SerializeField] float m_cameraMoveSpeed = 1;
     [SerializeField] float m_playerDoorDistance = 1.0f;
+    [SerializeField] float m_spawnOffset = 0.0f;
     
     static MapSystem m_instance = null;
 
@@ -87,87 +88,49 @@ public class MapSystem : MonoBehaviour
     void Start()
     {
         List<RoomGeneration> rooms = new List<RoomGeneration>();
-        List<Vector2Int> queueRooms = new List<Vector2Int>();
 
         RoomGeneration baseRoom = new RoomGeneration();
         baseRoom.type = RoomType.StartRoom;
         rooms.Add(baseRoom);
-        queueRooms.Add(new Vector2Int(0, 0));
 
-        while(rooms.Count < m_roomCount)
+        int roomOffset = Mathf.FloorToInt(m_roomCount * m_spawnOffset);
+
+        while (rooms.Count < m_roomCount)
         {
-            List<float> weights = new List<float>();
-            for(int i = 0; i < queueRooms.Count; i++)
-            {
-                float weight = 0;
-                RoomGeneration r = rooms.Find(x => { return x.x == queueRooms[i].x && x.y == queueRooms[i].y; });
-                if (CanGo(queueRooms[i] + new Vector2Int(0, -1), rooms)) weight++;
-                if (CanGo(queueRooms[i] + new Vector2Int(0, 1), rooms)) weight++;
-                if (CanGo(queueRooms[i] + new Vector2Int(-1, 0), rooms)) weight++;
-                if (CanGo(queueRooms[i] + new Vector2Int(1, 0), rooms)) weight++;
+            int minIndex = rooms.Count - 1 - roomOffset;
+            if (minIndex < 0)
+                minIndex = 0;
+            int maxIndex = rooms.Count;
 
-                weights.Add(weight);
+            int startIndex = new UniformIntDistribution(minIndex, maxIndex).Next(new StaticRandomGenerator<MT19937>());
+            if (startIndex >= rooms.Count)
+                startIndex = rooms.Count - 1;
+
+            bool found = false;
+
+            for (int i = startIndex; i < rooms.Count; i++)
+            {
+                if(CreateNewRoomAround(i, rooms))
+                {
+                    found = true;
+                    break;
+                }
             }
 
+            if(!found)
             {
-                var index = new DiscreteDistribution(weights).Next(new StaticRandomGenerator<MT19937>());
-
-                RoomGeneration r = rooms.Find(x => { return x.x == queueRooms[index].x && x.y == queueRooms[index].y; });
-                int nbDoors = 0;
-                if (CanGo(queueRooms[index] + new Vector2Int(0, -1), rooms)) nbDoors++;
-                if (CanGo(queueRooms[index] + new Vector2Int(0, 1), rooms)) nbDoors++;
-                if (CanGo(queueRooms[index] + new Vector2Int(-1, 0), rooms)) nbDoors++;
-                if (CanGo(queueRooms[index] + new Vector2Int(1, 0), rooms)) nbDoors++;
-
-                RoomGeneration nextRoom = new RoomGeneration();
-
-                nbDoors = new UniformIntDistribution(0, nbDoors).Next(new StaticRandomGenerator<MT19937>()) + 1;
-                Vector2Int pos = queueRooms[index];
-                if (CanGo(queueRooms[index] + new Vector2Int(0, 1), rooms)) nbDoors--;
-                if (nbDoors == 0)
+                for (int i = startIndex - 1; i > 0; i--)
                 {
-                    r.upDoor = true;
-                    nextRoom.downDoor = true;
-                    pos.y++;
-                }
-                else
-                {
-                    if (CanGo(queueRooms[index] + new Vector2Int(0, -1), rooms)) nbDoors--;
-                    if (nbDoors == 0)
+                    if (CreateNewRoomAround(i, rooms))
                     {
-                        r.downDoor = true;
-                        nextRoom.upDoor = true;
-                        pos.y--;
-                    }
-                    else
-                    {
-                        if (CanGo(queueRooms[index] + new Vector2Int(-1, 0), rooms)) nbDoors--;
-                        if (nbDoors == 0)
-                        {
-                            r.leftDoor = true;
-                            nextRoom.rightDoor = true;
-                            pos.x--;
-                        }
-                        else
-                        {
-                            if (CanGo(queueRooms[index] + new Vector2Int(1, 0), rooms)) nbDoors--;
-                            if (nbDoors == 0)
-                            {
-                                r.rightDoor = true;
-                                nextRoom.leftDoor = true;
-                                pos.x++;
-                            }
-                        }
+                        found = true;
+                        break;
                     }
                 }
-
-                nextRoom.x = pos.x;
-                nextRoom.y = pos.y;
-                rooms.Add(nextRoom);
-                queueRooms.Add(pos);
-                if (r.upDoor && r.downDoor && r.leftDoor && r.rightDoor)
-                    queueRooms.Remove(new Vector2Int(r.x, r.y));
             }
+
+            if (!found)
+                break;
         }
 
         rooms[rooms.Count - 1].type = RoomType.BossRoom;
@@ -194,7 +157,72 @@ public class MapSystem : MonoBehaviour
 
         m_rooms[0].discovered = true;
 
+        for (int i = 0; i < m_rooms.Count; i++)
+            m_rooms[i].discovered = true;
+
         Event<UpdateMinimapEvent>.Broadcast(new UpdateMinimapEvent(m_rooms, m_currentRoom));
+    }
+
+    bool CreateNewRoomAround(int index, List<RoomGeneration> rooms)
+    {
+        int nbDoors = 0;
+
+        var r = rooms[index];
+        var pos = new Vector2Int(r.x, r.y);
+
+        if (CanGo(pos + new Vector2Int(0, -1), rooms)) nbDoors++;
+        if (CanGo(pos + new Vector2Int(0, 1), rooms)) nbDoors++;
+        if (CanGo(pos + new Vector2Int(-1, 0), rooms)) nbDoors++;
+        if (CanGo(pos + new Vector2Int(1, 0), rooms)) nbDoors++;
+
+        if (nbDoors == 0)
+            return false;
+
+        RoomGeneration nextRoom = new RoomGeneration();
+
+        nbDoors = new UniformIntDistribution(0, nbDoors).Next(new StaticRandomGenerator<MT19937>()) + 1;
+        if (CanGo(pos + new Vector2Int(0, 1), rooms)) nbDoors--;
+        if (nbDoors == 0)
+        {
+            r.upDoor = true;
+            nextRoom.downDoor = true;
+            pos.y++;
+        }
+        else
+        {
+            if (CanGo(pos + new Vector2Int(0, -1), rooms)) nbDoors--;
+            if (nbDoors == 0)
+            {
+                r.downDoor = true;
+                nextRoom.upDoor = true;
+                pos.y--;
+            }
+            else
+            {
+                if (CanGo(pos + new Vector2Int(-1, 0), rooms)) nbDoors--;
+                if (nbDoors == 0)
+                {
+                    r.leftDoor = true;
+                    nextRoom.rightDoor = true;
+                    pos.x--;
+                }
+                else
+                {
+                    if (CanGo(pos + new Vector2Int(1, 0), rooms)) nbDoors--;
+                    if (nbDoors == 0)
+                    {
+                        r.rightDoor = true;
+                        nextRoom.leftDoor = true;
+                        pos.x++;
+                    }
+                }
+            }
+        }
+
+        nextRoom.x = pos.x;
+        nextRoom.y = pos.y;
+        rooms.Add(nextRoom);
+        return true;
     }
 
     bool CanGo(Vector2Int to, List<RoomGeneration> rooms)
