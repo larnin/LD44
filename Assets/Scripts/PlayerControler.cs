@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NRand;
+using DG.Tweening;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] AudioClip m_deathSound = null;
     [SerializeField] List<AudioClip> m_footSteps = new List<AudioClip>();
     [SerializeField] float m_stepDistance = 0.5f;
+    [SerializeField] float m_freezeTimeOnTp = 0.5f;
 
     Vector2 m_speed = new Vector2(0, 0);
     Vector2 m_input = new Vector2(0, 0);
@@ -32,6 +34,8 @@ public class PlayerControler : MonoBehaviour
 
     float m_totalDistance = 0;
     Vector2 m_oldPosition = new Vector2();
+
+    bool m_freezeControls = false;
 
     static PlayerControler m_instance;
 
@@ -114,6 +118,9 @@ public class PlayerControler : MonoBehaviour
         if (speedMagnitude > m_maxSpeed * speedMultiplier)
             m_speed = m_speed / speedMagnitude * m_maxSpeed * speedMultiplier;
 
+        if (m_freezeControls)
+            m_speed = new Vector2(0, 0);
+
         m_rigidbody.velocity = m_speed;
 
         if (m_speed.sqrMagnitude > 0.01f)
@@ -156,6 +163,14 @@ public class PlayerControler : MonoBehaviour
     {
         transform.position = new Vector3(e.target.x, e.target.y, transform.position.z);
         m_oldPosition = transform.position;
+
+        m_freezeControls = true;
+
+        DOVirtual.DelayedCall(m_freezeTimeOnTp, () =>
+        {
+            if (this != null)
+                m_freezeControls = false;
+        });
     }
 
     void OnGoldGain(GoldChangedEvent e)

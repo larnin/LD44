@@ -14,10 +14,10 @@ public class DropItem : SerializedMonoBehaviour
 
     Rigidbody2D m_rigidbody = null;
     float m_dropTime = 0;
-    Vector2 m_dropDir;
-    GameObject m_tooltip = null;
+    Vector2 m_dropDir = new Vector2(0, 0);
+    protected GameObject m_tooltip = null;
 
-    void Start()
+    protected virtual void Start()
     {
         m_tooltip = transform.Find("Tooltip")?.gameObject;
         if(m_tooltip != null)
@@ -41,6 +41,8 @@ public class DropItem : SerializedMonoBehaviour
         m_rigidbody.velocity = m_dropDir * m_startDropSpeed * speedMultiplier;
 
         m_dropTime += Time.deltaTime;
+
+        Debug.Log(m_rigidbody.velocity);
     }
 
     public virtual void ApplyLoot(GameObject player)

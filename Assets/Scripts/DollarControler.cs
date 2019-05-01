@@ -21,6 +21,7 @@ public class DollarControler : SerializedMonoBehaviour
 
     Vector2 m_velocity = new Vector2(0, 0);
     Vector2 m_viewDirection = new Vector2();
+    int m_tryCount = 0;
 
     void Start()
     {
@@ -59,9 +60,20 @@ public class DollarControler : SerializedMonoBehaviour
 
                 var dir = new UniformVector2CircleSurfaceDistribution(m_speed).Next(new StaticRandomGenerator<MT19937>());
 
-                m_velocity = dir;
+                if (Physics2D.CircleCast(transform.position, 0.9f, dir, dir.magnitude, LayerMask.GetMask("Default")).collider == null || m_tryCount >= 10)
+                {
+                    m_velocity = dir;
 
-                m_animator.SetBool("Move", true);
+                    m_animator.SetBool("Move", true);
+
+                    m_stopped = false;
+                    m_tryCount = 0;
+                }
+                else
+                {
+                    m_timer = 0;
+                    m_tryCount++;
+                }
             }
             else
             {
@@ -77,9 +89,9 @@ public class DollarControler : SerializedMonoBehaviour
                 m_timer = new UniformFloatDistribution(m_minFireTime, m_maxFireTime).Next(new StaticRandomGenerator<MT19937>());
 
                 m_animator.SetBool("Move", false);
-            }
 
-            m_stopped = !m_stopped;
+                m_stopped = true;
+            }
         }
 
         m_weapon.Process(m_viewDirection);

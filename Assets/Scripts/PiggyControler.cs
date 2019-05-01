@@ -11,6 +11,8 @@ public class PiggyControler : MonoBehaviour
     [SerializeField] float m_minIdleTime = 1;
     [SerializeField] float m_maxIdleTime = 5;
     [SerializeField] float m_startJumpDelay = 0.2f;
+    [SerializeField] AudioClip m_jumpSound = null;
+    [SerializeField] AudioClip m_landSound = null;
 
     Animator m_animator = null;
     Rigidbody2D m_rigidbody = null;
@@ -40,6 +42,7 @@ public class PiggyControler : MonoBehaviour
         if(m_jumpTimer < 0 && PlayerControler.Instance() != null && !m_jumping)
         {
             m_animator.SetTrigger("StartJump");
+            SoundSystem.Instance().play(m_jumpSound, 0.5f, true);
 
             m_jumping = true;
 
@@ -69,6 +72,7 @@ public class PiggyControler : MonoBehaviour
                     m_jumping = false;
 
                     m_animator.SetTrigger("EndJump");
+                    SoundSystem.Instance().play(m_landSound);
                 });
             });
         }

@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class FadeLogic : MonoBehaviour
 {
     [SerializeField] float m_fadeTime = 1.0f;
 
-    SpriteRenderer m_renderer;
+    Image m_renderer;
     SubscriberList m_subscriberList = new SubscriberList();
 
     static FadeLogic m_instance = null;
@@ -18,15 +19,15 @@ public class FadeLogic : MonoBehaviour
     {
         if (m_instance != null)
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
             return;
         }
         m_instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(transform.parent.gameObject);
 
         m_subscriberList.Add(new Event<ShowLoadingScreenEvent>.Subscriber(onFade));
         m_subscriberList.Subscribe();
-        m_renderer = GetComponent<SpriteRenderer>();
+        m_renderer = GetComponent<Image>();
 
         m_renderer.color = new Color(0, 0, 0, 0);
     }

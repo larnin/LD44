@@ -34,12 +34,22 @@ public class SoundSystem : MonoBehaviour
     {
         if(m_currentSource1)
         {
-            m_musicSource1.DOFade(0, transitionTime);
+            m_musicSource1.DOFade(0, transitionTime).OnComplete(()=> { m_musicSource1.Stop(); });
             m_musicSource2.clip = clip;
             m_musicSource2.volume = 0;
             m_musicSource2.Play();
             m_musicSource2.DOFade(volume, transitionTime);
         }
+        else
+        {
+            m_musicSource2.DOFade(0, transitionTime).OnComplete(() => { m_musicSource2.Stop(); }); ;
+            m_musicSource1.clip = clip;
+            m_musicSource1.volume = 0;
+            m_musicSource1.Play();
+            m_musicSource1.DOFade(volume, transitionTime);
+        }
+
+        m_currentSource1 = !m_currentSource1;
     }
 
     public void play(AudioClip clip, float volume = 0.5f, bool force = false)

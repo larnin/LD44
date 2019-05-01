@@ -133,6 +133,8 @@ MonoBehaviour:
   m_minIdleTime: 1
   m_maxIdleTime: 3
   m_startJumpDelay: 0.2
+  m_jumpSound: {fileID: 8300000, guid: f340101c7c3b33b459ddec1095796cc4, type: 3}
+  m_landSound: {fileID: 8300000, guid: 13dbc528fc99406468b97ff02f8561e2, type: 3}
 --- !u!50 &1433490171985502249
 Rigidbody2D:
   serializedVersion: 4
@@ -221,3 +223,4 @@ MonoBehaviour:
   m_maxLife: 5
   m_contactDamage: 12
   m_deathSound: {fileID: 8300000, guid: a527d0dd48b3429488057d652f7ffbc3, type: 3}
+  m_isBoss: 0

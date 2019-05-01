@@ -22,7 +22,6 @@ public class Minimap : SerializedMonoBehaviour
     [SerializeField] Sprite m_selectorSprite = null;
     [SerializeField] GameObject m_spritePrefab = null;
     [SerializeField] Vector2 m_roomSize = new Vector2(1, 1);
-    [SerializeField] Color m_hiddenColor = Color.white;
 
     SubscriberList m_subscriberList = new SubscriberList();
     List<GameObject> m_images = new List<GameObject>();
@@ -214,13 +213,15 @@ public class Minimap : SerializedMonoBehaviour
 
     void OnHideMap(HideMapEvent e)
     {
-        Color c = e.hide ? m_hiddenColor : Color.white;
-
         for(int i = 0; i < m_images.Count; i++)
         {
             var img = m_images[i].GetComponent<Image>();
             if (img != null)
+            {
+                Color c = img.color;
+                c.a = e.hide ? 0.5f : 1.0f;
                 img.color = c;
+            }
         }
     }
 }

@@ -28,7 +28,9 @@ public class ContinuousWeapon : SimpleWeapon
 
         if(m_onFire && m_fireTime <= 0)
         {
-            m_fireTime = m_deltaTime;
+            if (m_isPlayerWeapon)
+                m_fireTime = m_deltaTime / PlayerStats.Instance().GetStatValue("FireRateMultiplier");
+            else m_fireTime = m_deltaTime;
 
             Fire(direction);
         }

@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a7055a2a8401f824c903b973fc052c13, type: 3}
   - {fileID: 8300000, guid: 03ff65456afdb174faca9723651988d5, type: 3}
   m_stepDistance: 2
+  m_freezeTimeOnTp: 0.3
 --- !u!61 &2233932899549449888
 BoxCollider2D:
   m_ObjectHideFlags: 0
