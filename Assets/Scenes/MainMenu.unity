@@ -1472,7 +1472,8 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701291915}
-  m_Text: "Sound\tAurelien MONTERO\nGraph\tNicolas NOWAK\nCode\tNicolas LAURENT"
+  m_Text: "Sound\tAurelien MONTERO\nGraph\tNicolas NOWAK\nCode\tNicolas LAURENT\nVoices\tLaurent
+    GRIS\nIllu\tNao ARGOUSE"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1.2
@@ -2333,7 +2334,8 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305959430}
-  m_Text: "Sound\tAurelien MONTERO\nGraph\tNicolas NOWAK\nCode\tNicolas LAURENT"
+  m_Text: "Sound\tAurelien MONTERO\nGraph\tNicolas NOWAK\nCode\tNicolas LAURENT\nVoices\tLaurent
+    GRIS\nIllu\tNao ARGOUSE"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1.2

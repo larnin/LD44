@@ -19,7 +19,7 @@ public class DropPicker : MonoBehaviour
     void UpdateAutoLoot()
     {
         Vector2 pos = transform.position;
-        var colliders = Physics2D.OverlapCircleAll(pos, m_autoLootDistance);
+        var colliders = Physics2D.OverlapCircleAll(pos, m_autoLootDistance * PlayerStats.Instance().GetStatValue("LootDistanceMultiplier"));
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -32,7 +32,7 @@ public class DropPicker : MonoBehaviour
     void UpdateLoot()
     {
         Vector2 pos = transform.position;
-        var colliders = Physics2D.OverlapCircleAll(pos, m_lootDistance);
+        var colliders = Physics2D.OverlapCircleAll(pos, m_lootDistance * PlayerStats.Instance().GetStatValue("LootDistanceMultiplier"));
 
         DropItem bestItem = null;
         float bestDistance = float.MaxValue;

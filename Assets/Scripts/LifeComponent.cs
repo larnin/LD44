@@ -82,7 +82,7 @@ public class LifeComponent : MonoBehaviour
             for (int j = 0; j < nb; j++)
             {
                 var obj = Instantiate(m_loots[index].dropPrefab);
-                obj.transform.position = transform.position;
+                obj.transform.position = transform.position + new Vector3(0, 0, 0.1f);
             }
         }
     }

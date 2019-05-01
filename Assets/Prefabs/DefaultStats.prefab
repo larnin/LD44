@@ -65,7 +65,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 7
+      Data: 8
     - Name: 
       Entry: 7
       Data: 
@@ -201,6 +201,27 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 8|StatModifier, Assembly-CSharp
+    - Name: baseValue
+      Entry: 4
+      Data: 1
+    - Name: multiplier
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: 
+      Entry: 1
+      Data: LootDistanceMultiplier
+    - Name: 
+      Entry: 7
+      Data: 9|StatModifier, Assembly-CSharp
     - Name: baseValue
       Entry: 4
       Data: 1
