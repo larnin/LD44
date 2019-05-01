@@ -20,6 +20,7 @@ public class LifeComponent : MonoBehaviour
     [SerializeField] float m_maxLife = 1;
     [SerializeField] float m_contactDamage = 1;
     [SerializeField] AudioClip m_deathSound = null;
+    [SerializeField] bool m_isBoss = false;
 
     float m_life = 0;
 
@@ -31,11 +32,17 @@ public class LifeComponent : MonoBehaviour
     private void Start()
     {
         Event<EnemySpawnEvent>.Broadcast(new EnemySpawnEvent(gameObject));
+
+        if (m_isBoss)
+            Event<BossLifeChangeEvent>.Broadcast(new BossLifeChangeEvent(m_life, m_maxLife));
     }
 
     public void Damage(float power)
     {
         m_life -= power;
+
+        if(m_isBoss)
+            Event<BossLifeChangeEvent>.Broadcast(new BossLifeChangeEvent(Mathf.Max(m_life, 0), m_maxLife));
 
         if (m_life <= 0)
         {
