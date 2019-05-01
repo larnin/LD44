@@ -21,7 +21,7 @@ public class CursorLogic : MonoBehaviour
 
     void OnCursorMove(WeaponTargetChangeEvent e)
     {
-        transform.position = e.target;
+        transform.position = new Vector3(e.target.x, e.target.y, transform.position.z);
         Color c = Color.white;
         if (e.distance < 1)
             c.a *= e.distance;
