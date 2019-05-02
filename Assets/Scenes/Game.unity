@@ -3942,24 +3942,24 @@ PrefabInstance:
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.SerializationNodes.Array.size
-      value: 62
+      value: 69
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.Prefab
       value: 
-      objectReference: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"m_stats","add_keys":{"$id":0,"$type":"System.Object[], mscorlib","$rlength":4,"$rcontent":[{"$id":1,"$type":"System.String,
-        mscorlib","FireRateMultiplier"},$iref:1,{"$id":2,"$type":"System.String, mscorlib","LootDistanceMultiplier"},$iref:2]},"remove_keys":null'
+      value: '"path":"m_stats","add_keys":{"$id":0,"$type":"System.Object[], mscorlib","$rlength":6,"$rcontent":[{"$id":1,"$type":"System.String,
+        mscorlib","FireRateMultiplier"},$iref:1,{"$id":2,"$type":"System.String, mscorlib","LootDistanceMultiplier"},$iref:2,{"$id":3,"$type":"System.String,
+        mscorlib","ProjectileSizeMultiplier"},$iref:3]},"remove_keys":null'
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
@@ -4000,28 +4000,51 @@ PrefabInstance:
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[7]
-      value: '"path":"m_stats.{\"ProjectileSpeedMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
+      value: '"path":"m_stats.{\"ProjectileSizeMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
+        Assembly-CSharp","baseValue":1,"multiplier":1}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[8]
+      value: '"path":"m_stats.{\"ProjectileSizeMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
         mscorlib",1}'
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[3].Data
-      value: 8
+      propertyPath: serializationData.PrefabModifications.Array.data[9]
+      value: '"path":"m_stats.{\"ProjectileSizeMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
+        mscorlib",1}'
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[53].Entry
+      propertyPath: serializationData.PrefabModifications.Array.data[10]
+      value: '"path":"m_stats.{\"ProjectileSpeedMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
+        mscorlib",2}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[3].Data
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: serializationData.SerializationNodes.Array.data[60].Entry
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[54].Entry
+      propertyPath: serializationData.SerializationNodes.Array.data[61].Entry
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
-      propertyPath: serializationData.SerializationNodes.Array.data[54].Data
-      value: LootDistanceMultiplier
+      propertyPath: serializationData.SerializationNodes.Array.data[61].Data
+      value: ProjectileSizeMultiplier
+      objectReference: {fileID: 0}
+    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
+        type: 3}
+      propertyPath: m_debugStats
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33cedad122473c140b618ef954c17f5c, type: 3}
