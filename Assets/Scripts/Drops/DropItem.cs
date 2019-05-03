@@ -41,8 +41,6 @@ public class DropItem : SerializedMonoBehaviour
         m_rigidbody.velocity = m_dropDir * m_startDropSpeed * speedMultiplier;
 
         m_dropTime += Time.deltaTime;
-
-        Debug.Log(m_rigidbody.velocity);
     }
 
     public virtual void ApplyLoot(GameObject player)
