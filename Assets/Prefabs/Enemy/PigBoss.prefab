@@ -162,7 +162,7 @@ Animator:
   m_GameObject: {fileID: 686472086799911143}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 390a204de4128fd4ca2ec6a5fcf1e5a5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -189,8 +189,6 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 3561944106956106535, guid: e23de171756778548af9326cf729c01d, type: 3}
     - {fileID: 8870761549202993873, guid: 70b952746b5b4a64f87282cf26143e9b, type: 3}
-    - {fileID: 8300000, guid: 2b228ad7ebfea0141a4736c9aa280003, type: 3}
-    - {fileID: 8300000, guid: 12fccb30136061a43854cef72564bc50, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -245,11 +243,11 @@ MonoBehaviour:
       Entry: 12
       Data: 2
     - Name: 
-      Entry: 10
-      Data: 2
+      Entry: 6
+      Data: 
     - Name: 
-      Entry: 10
-      Data: 3
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -264,13 +262,13 @@ MonoBehaviour:
       Data: 
   m_awakeTime: 1
   m_speed: 1
-  m_minMoveTime: 3
-  m_maxMoveTime: 5
-  m_spawnStartDelay: 1
-  m_spawningTime: 2
+  m_minMoveTime: 5
+  m_maxMoveTime: 7
+  m_spawnStartDelay: 0.3
+  m_spawningTime: 1.5
   m_minSpawnDelay: 0.4
   m_maxSpawnDelay: 0.5
-  m_minSpawnDistance: 2
+  m_minSpawnDistance: 4
   m_maxSpawnDistance: 3
   m_minSpawnNb: 1
   m_maxSpawnNb: 2

@@ -57,11 +57,11 @@ public class PigBossControler : SerializedMonoBehaviour
                     StartFire();
                 break;
             case State.Fire:
-                if (m_time <= 0)
-                    StartSpawn();
-
                 UpdateVelocity();
                 m_weapon.Process(m_velocity);
+
+                if (m_time <= 0)
+                    StartSpawn();
                 break;
             case State.WaitBeforeSpawn:
                 if (m_time <= 0)
@@ -104,16 +104,49 @@ public class PigBossControler : SerializedMonoBehaviour
     void RealyStartSpawning()
     {
         m_time = m_spawningTime;
+        m_velocity = new Vector2(0, 0);
 
-        int spawnNb = new UniformIntDistribution(m_minSpawnNb, m_maxSpawnNb + 1).Next(new StaticRandomGenerator<MT19937>());
-        var pos = transform.position;
-
-        for(int i = 0; i < spawnNb; i++)
+        var rand = new StaticRandomGenerator<MT19937>();
+        int spawnNb = new UniformIntDistribution(m_minSpawnNb, m_maxSpawnNb + 1).Next(rand);
+        if (spawnNb > 0)
         {
+            var pos = transform.position;
 
+            float angle = new UniformFloatDistribution(0, Mathf.PI * 2).Next(rand);
+            float minAngle = Mathf.PI / spawnNb / 2;
+            float maxAngle = minAngle * 4;
+
+            int tryCount = 0;
+            for (int i = 0; i < spawnNb; i++)
+            {
+                var dir = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * new UniformFloatDistribution(m_minSpawnDistance, m_maxSpawnDistance).Next(rand);
+
+                var ray = Physics2D.Raycast(transform.position, dir, dir.magnitude, LayerMask.GetMask("Default"));
+                if(ray.collider != null)
+                {
+                    tryCount++;
+                    if (tryCount < 10)
+                        i--;
+                    else tryCount = 0;
+                }
+                else
+                {
+                    tryCount = 0;
+                    
+                    DOVirtual.DelayedCall(new UniformFloatDistribution(m_minSpawnDelay, m_maxSpawnDelay).Next(rand), () =>
+                    {
+
+                        var index = new UniformIntDistribution(0, m_entities.Count).Next(rand);
+                        var obj = Instantiate(m_entities[index]);
+                        obj.transform.position = pos + new Vector3(dir.x, dir.y);
+                    });
+                }
+
+                angle += new UniformFloatDistribution(minAngle, maxAngle).Next(rand);
+            }
         }
 
-        m_animator.SetTrigger("Spawn");
+        m_animator.SetTrigger("Invoke");
 
         m_state = State.Spawning;
     }
