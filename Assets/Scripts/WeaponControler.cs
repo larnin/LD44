@@ -9,7 +9,8 @@ public class WeaponControler : SerializedMonoBehaviour
     const string mouseXAxis = "MouseX";
     const string mouseYAxis = "MouseY";
     const string fireButton = "Fire";
-    
+    const string fireAxis = "FireAxis";
+
     [SerializeField] float m_cursorSpeed = 1;
     [SerializeField] float m_cursorMaxDistance = 1;
     [SerializeField] float m_threshold = 0.1f;
@@ -23,6 +24,8 @@ public class WeaponControler : SerializedMonoBehaviour
 
     PlayerControler m_playerControler = null;
     Animator m_animator = null;
+
+    float m_oldFireAxis = 0;
 
     private void Awake()
     {
@@ -59,13 +62,13 @@ public class WeaponControler : SerializedMonoBehaviour
 
         if (m_weapon != null)
         {
-            
-
-            if (Input.GetButtonDown(fireButton))
+            float fire = Input.GetAxisRaw(fireAxis);
+            if((fire > 0.5f && m_oldFireAxis <= 0.5f) || Input.GetButtonDown(fireButton))
                 m_weapon.StartFire(dir);
             m_weapon.Process(dir);
-            if (Input.GetButtonUp(fireButton))
+            if ((fire < 0.5f && m_oldFireAxis >= 0.5f) || Input.GetButtonUp(fireButton))
                 m_weapon.EndFire();
+            m_oldFireAxis = fire;
         }
 
         float angle = Mathf.Atan2(dir.y, dir.x);

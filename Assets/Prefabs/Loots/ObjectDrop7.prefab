@@ -375,10 +375,10 @@ MonoBehaviour:
       Data: 2|StatModifier, Assembly-CSharp
     - Name: baseValue
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: multiplier
       Entry: 4
-      Data: 1.5
+      Data: 1.2
     - Name: 
       Entry: 8
       Data: 

@@ -426,9 +426,9 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 3561944106956106535, guid: 8866506f6ce1cbc4ba66fcaed8bca844, type: 3}
     - {fileID: 2775777678887454952, guid: 691de420536c72d4e88d4ca8f2ac3f5f, type: 3}
-    - {fileID: 8300000, guid: 060d951c763ad904291c3c0b88c22818, type: 3}
-    - {fileID: 8300000, guid: 42a05cbc46419e44da51b821e5d769e5, type: 3}
-    - {fileID: 8300000, guid: db2af327fa1f0c8488808d1bc1085261, type: 3}
+    - {fileID: 8300000, guid: 39b0e627e2c062b4b9f1f564c4eaacee, type: 3}
+    - {fileID: 8300000, guid: c3f1e96bd325fb84f939e945f9a1ac71, type: 3}
+    - {fileID: 8300000, guid: 8bbc10453ce8f764cb3688b8f32e8a8d, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -436,7 +436,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: m_weapon
       Entry: 7
-      Data: 0|SimpleWeapon, Assembly-CSharp
+      Data: 0|ContinuousWeapon, Assembly-CSharp
     - Name: m_modifiers
       Entry: 7
       Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[StatModifier,
@@ -497,6 +497,12 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_firePrice
+      Entry: 3
+      Data: 2
+    - Name: m_deltaTime
+      Entry: 4
+      Data: 0.5
     - Name: 
       Entry: 8
       Data: 

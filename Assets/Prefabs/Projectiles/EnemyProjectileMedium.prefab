@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8870761549202993887}
   - component: {fileID: 8870761549202993872}
   m_Layer: 11
-  m_Name: EnemyProjectile 1
+  m_Name: EnemyProjectileMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9c2000985a5524aae3cd565585dc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_baseDamage: 2
+  m_baseDamage: 6
   isPlayerProjectile: 1
   m_speed: 7
   m_maxLife: 5

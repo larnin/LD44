@@ -216,6 +216,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_firePrice
+      Entry: 3
+      Data: 0
     - Name: m_deltaTime
       Entry: 4
       Data: 0.5
@@ -313,5 +316,6 @@ MonoBehaviour:
     weight: 1
   m_lootCount: 1
   m_maxLife: 5
-  m_contactDamage: 5
+  m_contactDamage: 10
   m_deathSound: {fileID: 8300000, guid: 7af391abba1bfee49924adbdd5a5aafc, type: 3}
+  m_isBoss: 0

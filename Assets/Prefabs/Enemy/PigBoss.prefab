@@ -254,6 +254,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_firePrice
+      Entry: 3
+      Data: 0
     - Name: m_deltaTime
       Entry: 4
       Data: 1.5
@@ -286,9 +289,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d8f702f4aea4e4da59d67f37d08757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_loots: []
-  m_lootCount: 0
-  m_maxLife: 20
-  m_contactDamage: 20
+  m_loots:
+  - dropPrefab: {fileID: 1749865779747965901, guid: a72cd545537db174b8340c378b7cc3dc,
+      type: 3}
+    countMin: 10
+    countMax: 15
+    weight: 1
+  m_lootCount: 1
+  m_maxLife: 50
+  m_contactDamage: 25
   m_deathSound: {fileID: 8300000, guid: a527d0dd48b3429488057d652f7ffbc3, type: 3}
   m_isBoss: 1

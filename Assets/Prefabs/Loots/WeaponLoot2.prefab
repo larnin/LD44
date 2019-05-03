@@ -425,10 +425,10 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 3561944106956106535, guid: 7b1939ed7b21da04a8aad4a581617b8a, type: 3}
-    - {fileID: 8111948610857954093, guid: 30e5f5986b941f9488fdd30fdb96f246, type: 3}
-    - {fileID: 8300000, guid: 5dc465762bef35845af356b28c7a62a2, type: 3}
-    - {fileID: 8300000, guid: a4dcbb6c38d61ca41ade9f2256d9a3e7, type: 3}
-    - {fileID: 8300000, guid: c3f1e96bd325fb84f939e945f9a1ac71, type: 3}
+    - {fileID: 2775777678887454952, guid: 691de420536c72d4e88d4ca8f2ac3f5f, type: 3}
+    - {fileID: 8300000, guid: db2af327fa1f0c8488808d1bc1085261, type: 3}
+    - {fileID: 8300000, guid: 42a05cbc46419e44da51b821e5d769e5, type: 3}
+    - {fileID: 8300000, guid: 060d951c763ad904291c3c0b88c22818, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -436,7 +436,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: m_weapon
       Entry: 7
-      Data: 0|SimpleWeapon, Assembly-CSharp
+      Data: 0|ContinuousWeapon, Assembly-CSharp
     - Name: m_modifiers
       Entry: 7
       Data: 1|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[StatModifier,
@@ -497,6 +497,12 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_firePrice
+      Entry: 3
+      Data: 1
+    - Name: m_deltaTime
+      Entry: 4
+      Data: 0.8
     - Name: 
       Entry: 8
       Data: 

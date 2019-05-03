@@ -227,6 +227,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_firePrice
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 

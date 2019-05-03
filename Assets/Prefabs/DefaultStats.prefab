@@ -161,7 +161,7 @@ MonoBehaviour:
       Data: 6|StatModifier, Assembly-CSharp
     - Name: baseValue
       Entry: 4
-      Data: 2
+      Data: 2.5
     - Name: multiplier
       Entry: 4
       Data: 1
@@ -261,5 +261,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  m_baseGold: 100
+  m_baseGold: 50
   m_debugStats: 0

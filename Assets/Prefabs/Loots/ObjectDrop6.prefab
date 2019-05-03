@@ -172,7 +172,7 @@ MonoBehaviour:
       Data: 2|StatModifier, Assembly-CSharp
     - Name: baseValue
       Entry: 4
-      Data: 0.2
+      Data: 0.5
     - Name: multiplier
       Entry: 4
       Data: 1
@@ -193,7 +193,7 @@ MonoBehaviour:
       Data: 3|StatModifier, Assembly-CSharp
     - Name: baseValue
       Entry: 4
-      Data: 0.2
+      Data: 0.3
     - Name: multiplier
       Entry: 4
       Data: 1
@@ -217,7 +217,7 @@ MonoBehaviour:
       Data: 0
     - Name: multiplier
       Entry: 4
-      Data: 0.8
+      Data: 0.75
     - Name: 
       Entry: 8
       Data: 
@@ -235,7 +235,7 @@ MonoBehaviour:
       Data: 5|StatModifier, Assembly-CSharp
     - Name: baseValue
       Entry: 4
-      Data: 0.1
+      Data: 0.2
     - Name: multiplier
       Entry: 4
       Data: 1

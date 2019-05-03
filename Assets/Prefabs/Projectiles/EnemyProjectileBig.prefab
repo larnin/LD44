@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9c2000985a5524aae3cd565585dc80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_baseDamage: 5
+  m_baseDamage: 12
   isPlayerProjectile: 1
   m_speed: 7
   m_maxLife: 5

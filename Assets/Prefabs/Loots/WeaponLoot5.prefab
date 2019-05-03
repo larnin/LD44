@@ -501,9 +501,12 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_firePrice
+      Entry: 3
+      Data: 3
     - Name: m_deltaTime
       Entry: 4
-      Data: 0.2
+      Data: 0.25
     - Name: 
       Entry: 8
       Data: 

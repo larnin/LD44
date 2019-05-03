@@ -57,11 +57,17 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 0;
             m_menu.SetActive(true);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
             Time.timeScale = 1;
             m_menu.SetActive(false);
+
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
         }
 
         m_open = !m_open;

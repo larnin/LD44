@@ -13,6 +13,7 @@ public class SimpleWeapon : WeaponBase
     [SerializeField] GameObject m_projectilePrefab = null;
     [SerializeField] Vector2 m_ballsStatOffset = new Vector2(0, 0);
     [SerializeField] List<AudioClip> m_bulletSounds = new List<AudioClip>();
+    [SerializeField] int m_firePrice = 1;
 
     GameObject m_gun;
     GameObject m_gunFire;
@@ -94,7 +95,7 @@ public class SimpleWeapon : WeaponBase
         }
 
         if (m_isPlayerWeapon)
-            PlayerStats.Instance().gold--;
+            PlayerStats.Instance().gold -= m_firePrice;
 
         if (m_gunFire != null)
         {

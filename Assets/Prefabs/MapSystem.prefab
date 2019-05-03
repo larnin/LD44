@@ -43,17 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8075eb2c9f920d4e8d9c991788ad415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_roomCount: 20
-  m_shopRoomCount: 6
+  m_roomCount: 40
+  m_shopRoomCount: 5
   m_roomSize: {x: 36, y: 22}
   m_roomPrefabs:
   - roomPrefab: {fileID: 4514650985963850729, guid: 67e0603eaa4b600409fc87961898318d,
       type: 3}
     type: 0
-  - roomPrefab: {fileID: 4514650985963850729, guid: 67e0603eaa4b600409fc87961898318d,
+  - roomPrefab: {fileID: 4514650985963850729, guid: b351df4cc58aafa409760d787a0c18e7,
       type: 3}
     type: 3
-  - roomPrefab: {fileID: 1286672409448446105, guid: ffdab0f148829aa4e9b3ddf7b85f0b08,
+  - roomPrefab: {fileID: 4514650985963850729, guid: 254e142382b5b2d42ae83ab976c0eca6,
       type: 3}
     type: 2
   - roomPrefab: {fileID: 4514650985963850729, guid: 5854d6c1b799ea542a8e6acec0e9d60a,

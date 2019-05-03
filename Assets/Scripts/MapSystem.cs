@@ -300,8 +300,8 @@ public class MapSystem : MonoBehaviour
                 for (int i = 0; i < spawns.Length; i++)
                     spawns[i].Spawn();
 
-                if (room.type == RoomType.BossRoom)
-                    Event<VictoryEvent>.Broadcast(new VictoryEvent());
+                //if (room.type == RoomType.BossRoom)
+                //    Event<VictoryEvent>.Broadcast(new VictoryEvent());
             }
 
             room.discovered = true;

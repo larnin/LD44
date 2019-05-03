@@ -497,6 +497,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_firePrice
+      Entry: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 

@@ -477,7 +477,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1.3
+      Data: 1.5
     - Name: 
       Entry: 4
       Data: 0.1
@@ -533,6 +533,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_firePrice
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
