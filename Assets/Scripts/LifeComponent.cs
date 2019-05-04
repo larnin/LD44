@@ -23,6 +23,7 @@ public class LifeComponent : MonoBehaviour
     [SerializeField] float m_maxLife = 1;
     [SerializeField] float m_contactDamage = 1;
     [SerializeField] AudioClip m_deathSound = null;
+    [SerializeField] AudioClip m_hitSound = null;
     [SerializeField] bool m_isBoss = false;
     [SerializeField] GameObject m_deathObject = null;
 
@@ -60,6 +61,7 @@ public class LifeComponent : MonoBehaviour
         }
         else
         {
+            SoundSystem.Instance().play(m_hitSound, 0.5f, true);
             var renderers = m_visual.GetComponentsInChildren<SpriteRenderer>();
             for(int i = 0; i < renderers.Length; i++)
             {

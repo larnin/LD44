@@ -15,6 +15,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] float m_blinkTime = 10.0f;
     [SerializeField] GameObject m_goldGainPrefab = null;
     [SerializeField] AudioClip m_deathSound = null;
+    [SerializeField] AudioClip m_hitSound = null;
     [SerializeField] List<AudioClip> m_footSteps = new List<AudioClip>();
     [SerializeField] float m_stepDistance = 0.5f;
     [SerializeField] float m_freezeTimeOnTp = 0.5f;
@@ -162,6 +163,7 @@ public class PlayerControler : MonoBehaviour
         int value = Mathf.CeilToInt(power * multiplier);
 
         Event<CamShakeEvent>.Broadcast(new CamShakeEvent(m_shakePower, m_shakeTime));
+        SoundSystem.Instance().play(m_hitSound, 0.7f, true);
 
         PlayerStats.Instance().gold -= value;
     }
@@ -198,7 +200,7 @@ public class PlayerControler : MonoBehaviour
 
     void OnDeath()
     {
-        SoundSystem.Instance().play(m_deathSound, 0.5f, true);
+        SoundSystem.Instance().play(m_deathSound, 0.8f, true);
 
         if (m_deathObject != null)
         {

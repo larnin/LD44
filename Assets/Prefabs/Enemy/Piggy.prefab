@@ -223,6 +223,7 @@ MonoBehaviour:
   m_maxLife: 6
   m_contactDamage: 20
   m_deathSound: {fileID: 8300000, guid: a527d0dd48b3429488057d652f7ffbc3, type: 3}
+  m_hitSound: {fileID: 8300000, guid: fbde536ed0233c2408b2c6f9e0dfe49b, type: 3}
   m_isBoss: 0
   m_deathObject: {fileID: 3467191026690230849, guid: 364b82b5d586a7c4090af626daad2d7f,
     type: 3}

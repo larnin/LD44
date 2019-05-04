@@ -92,6 +92,12 @@ public class SimpleWeapon : WeaponBase
             pos += new Vector2(offset.x * cos - offset.y * sin, offset.x * sin + offset.y * cos);
 
             projectile.transform.position = pos;
+
+            if(m_isPlayerWeapon)
+            {
+                var stat = PlayerStats.Instance().GetStatValue("ProjectileSizeMultiplier");
+                projectile.transform.localScale = new Vector3(stat, stat, stat);
+            }
         }
 
         if (m_isPlayerWeapon)

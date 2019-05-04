@@ -17,7 +17,9 @@ public class PigBossControler : SerializedMonoBehaviour
 
     [SerializeField] float m_awakeTime = 1.0f;
     [SerializeField] float m_speed = 1;
+    [SerializeField] float m_poweredSpeed = 1.5f;
     [SerializeField] WeaponBase m_weapon = null;
+    [SerializeField] WeaponBase m_poweredWeapon = null;
     [SerializeField] float m_minMoveTime = 3.0f;
     [SerializeField] float m_maxMoveTime = 5.0f;
     [SerializeField] float m_spawnStartDelay = 1.0f;
@@ -28,6 +30,7 @@ public class PigBossControler : SerializedMonoBehaviour
     [SerializeField] float m_maxSpawnDistance = 3.0f;
     [SerializeField] int m_minSpawnNb = 1;
     [SerializeField] int m_maxSpawnNb = 2;
+    [SerializeField] float m_poweredSpawnMultiplier = 1;
     [SerializeField] List<GameObject> m_entities = new List<GameObject>();
 
     Rigidbody2D m_rigodbody = null;
@@ -36,6 +39,22 @@ public class PigBossControler : SerializedMonoBehaviour
     float m_time = 0.0f;
     State m_state = State.Awake;
     Vector2 m_velocity = new Vector2(0, 0);
+
+    WeaponBase m_currentWeapon = null;
+    bool m_isPowered = false;
+
+    SubscriberList m_subscriberList = new SubscriberList();
+
+    private void Awake()
+    {
+        m_subscriberList.Add(new Event<BossLifeChangeEvent>.Subscriber(OnLifeUpdate));
+        m_subscriberList.Subscribe();
+    }
+
+    private void OnDestroy()
+    {
+        m_subscriberList.Unsubscribe();
+    }
 
     void Start()
     {
@@ -46,6 +65,11 @@ public class PigBossControler : SerializedMonoBehaviour
 
         m_weapon.SetOwner(gameObject);
         m_weapon.SetPlayerWeapon(false);
+
+        m_poweredWeapon.SetOwner(gameObject);
+        m_poweredWeapon.SetPlayerWeapon(false);
+
+        m_currentWeapon = m_weapon;
     }
     
     void Update()
@@ -58,7 +82,7 @@ public class PigBossControler : SerializedMonoBehaviour
                 break;
             case State.Fire:
                 UpdateVelocity();
-                m_weapon.Process(m_velocity);
+                m_currentWeapon.Process(m_velocity);
 
                 if (m_time <= 0)
                     StartSpawn();
@@ -82,8 +106,10 @@ public class PigBossControler : SerializedMonoBehaviour
     {
         UpdateVelocity();
 
-        m_weapon.OnEquip();
-        m_weapon.StartFire(m_velocity);
+        m_currentWeapon = m_isPowered ? m_poweredWeapon : m_weapon;
+
+        m_currentWeapon.OnEquip();
+        m_currentWeapon.StartFire(m_velocity);
 
         m_time = new UniformFloatDistribution(m_minMoveTime, m_maxMoveTime).Next(new StaticRandomGenerator<MT19937>());
 
@@ -97,8 +123,8 @@ public class PigBossControler : SerializedMonoBehaviour
 
         m_state = State.WaitBeforeSpawn;
 
-        m_weapon.EndFire();
-        m_weapon.OnDesequip();
+        m_currentWeapon.EndFire();
+        m_currentWeapon.OnDesequip();
     }
 
     void RealyStartSpawning()
@@ -107,7 +133,8 @@ public class PigBossControler : SerializedMonoBehaviour
         m_velocity = new Vector2(0, 0);
 
         var rand = new StaticRandomGenerator<MT19937>();
-        int spawnNb = new UniformIntDistribution(m_minSpawnNb, m_maxSpawnNb + 1).Next(rand);
+        float spawnMultiplier = m_isPowered ? m_poweredSpawnMultiplier : 1;
+        int spawnNb = Mathf.RoundToInt(new UniformIntDistribution(m_minSpawnNb, m_maxSpawnNb + 1).Next(rand) * spawnMultiplier);
         if (spawnNb > 0)
         {
             var pos = transform.position;
@@ -164,6 +191,11 @@ public class PigBossControler : SerializedMonoBehaviour
 
         m_animator.SetBool("Left", targetPos.x < pos.x);
 
-        m_velocity = (targetPos - pos).normalized * m_speed;
+        m_velocity = (targetPos - pos).normalized * (m_isPowered ? m_poweredSpeed : m_speed);
+    }
+
+    void OnLifeUpdate(BossLifeChangeEvent e)
+    {
+        m_isPowered = (e.life / e.maxLife) < 0.5f;
     }
 }
