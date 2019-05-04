@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using NRand;
+using DG.Tweening;
 
 public class LifeComponent : MonoBehaviour
 {
+    const float fadeTime = 0.25f;
+
     [Serializable]
     class LootInfo
     {
@@ -21,12 +24,18 @@ public class LifeComponent : MonoBehaviour
     [SerializeField] float m_contactDamage = 1;
     [SerializeField] AudioClip m_deathSound = null;
     [SerializeField] bool m_isBoss = false;
+    [SerializeField] GameObject m_deathObject = null;
+
+    GameObject m_visual;
+
+    Tweener m_currentTween = null;
 
     float m_life = 0;
 
     private void Awake()
     {
         m_life = m_maxLife;
+        m_visual = transform.Find("Visual").gameObject;
     }
 
     private void Start()
@@ -49,6 +58,18 @@ public class LifeComponent : MonoBehaviour
             OnKill();
             Destroy(gameObject);
         }
+        else
+        {
+            var renderers = m_visual.GetComponentsInChildren<SpriteRenderer>();
+            for(int i = 0; i < renderers.Length; i++)
+            {
+                if (m_currentTween != null && !m_currentTween.IsComplete())
+                    m_currentTween.Complete(false);
+
+                renderers[i].material.SetColor("_AdditiveColor", Color.white);
+                m_currentTween = renderers[i].material.DOColor(Color.black, "_AdditiveColor", fadeTime);
+            }
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -63,6 +84,12 @@ public class LifeComponent : MonoBehaviour
         Event<EnemyKillEvent>.Broadcast(new EnemyKillEvent(gameObject));
         CreateLoot();
         SoundSystem.Instance().play(m_deathSound, 0.5f, true);
+
+        if(m_deathObject != null)
+        {
+            var obj = Instantiate(m_deathObject);
+            obj.transform.position = transform.position;
+        }
     }
 
     void CreateLoot()

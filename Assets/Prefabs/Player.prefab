@@ -53,7 +53,6 @@ MonoBehaviour:
   m_acceleration: 100
   m_threshold: 0.1
   m_blinkTime: 10
-  m_mat: {fileID: 2100000, guid: a8cbc34bacb0b2e4d8064bedc1ed7e98, type: 2}
   m_goldGainPrefab: {fileID: 7984917610156266477, guid: e424b6fd87bb7ec45bb30e74063afc5b,
     type: 3}
   m_deathSound: {fileID: 8300000, guid: 7af391abba1bfee49924adbdd5a5aafc, type: 3}
@@ -62,6 +61,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 03ff65456afdb174faca9723651988d5, type: 3}
   m_stepDistance: 2
   m_freezeTimeOnTp: 0.3
+  m_shakeTime: 0.25
+  m_shakePower: 0.2
+  m_deathObject: {fileID: 3467191026690230849, guid: 364b82b5d586a7c4090af626daad2d7f,
+    type: 3}
 --- !u!61 &2233932899549449888
 BoxCollider2D:
   m_ObjectHideFlags: 0

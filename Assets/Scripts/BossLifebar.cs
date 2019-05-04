@@ -31,6 +31,11 @@ public class BossLifebar : MonoBehaviour
 
     void OnLifeChange(BossLifeChangeEvent e)
     {
+        if(e.life <= 0)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
         gameObject.SetActive(true);
 
         m_barSprite.size = new Vector2(m_initialWidth * e.life / e.maxLife, m_barSprite.size.y);

@@ -13,12 +13,14 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] float m_acceleration = 1.0f;
     [SerializeField] float m_threshold = 0.1f;
     [SerializeField] float m_blinkTime = 10.0f;
-    [SerializeField] Material m_mat = null;
     [SerializeField] GameObject m_goldGainPrefab = null;
     [SerializeField] AudioClip m_deathSound = null;
     [SerializeField] List<AudioClip> m_footSteps = new List<AudioClip>();
     [SerializeField] float m_stepDistance = 0.5f;
     [SerializeField] float m_freezeTimeOnTp = 0.5f;
+    [SerializeField] float m_shakeTime = 0.25f;
+    [SerializeField] float m_shakePower = 0.2f;
+    [SerializeField] GameObject m_deathObject = null;
 
     Vector2 m_speed = new Vector2(0, 0);
     Vector2 m_input = new Vector2(0, 0);
@@ -27,6 +29,7 @@ public class PlayerControler : MonoBehaviour
 
     Rigidbody2D m_rigidbody;
     Animator m_animator;
+    GameObject m_visual;
 
     SubscriberList m_subscriberList = new SubscriberList();
 
@@ -49,6 +52,8 @@ public class PlayerControler : MonoBehaviour
         m_subscriberList.Add(new Event<TeleportPlayerEvent>.Subscriber(OnTeleport));
         m_subscriberList.Add(new Event<GoldChangedEvent>.Subscriber(OnGoldGain));
         m_subscriberList.Subscribe();
+
+        m_visual = transform.Find("Visual").gameObject;
 
         m_instance = this;
     }
@@ -76,16 +81,16 @@ public class PlayerControler : MonoBehaviour
             m_input /= magnitude;
 
         m_invincibleTime -= Time.deltaTime;
+        var color = Color.black;
         if(m_invincibleTime > 0)
         {
             float colorValue = Mathf.Sin(m_invincibleTime * m_blinkTime) * 0.5f + 0.5f;
-            var color = new Color(colorValue, colorValue, colorValue);
-                m_mat.SetColor("_AdditiveColor", color);
+            color = new Color(colorValue, colorValue, colorValue);
         }
-        else
-        {
-            m_mat.SetColor("_AdditiveColor", Color.black);
-        }
+
+        var renders = m_visual.GetComponentsInChildren<SpriteRenderer>();
+        for (int i = 0; i < renders.Length; i++)
+            renders[i].material.SetColor("_AdditiveColor", color);
 
         Vector2 pos = transform.position;
         m_totalDistance += (pos - m_oldPosition).magnitude;
@@ -156,6 +161,8 @@ public class PlayerControler : MonoBehaviour
 
         int value = Mathf.CeilToInt(power * multiplier);
 
+        Event<CamShakeEvent>.Broadcast(new CamShakeEvent(m_shakePower, m_shakeTime));
+
         PlayerStats.Instance().gold -= value;
     }
 
@@ -191,8 +198,14 @@ public class PlayerControler : MonoBehaviour
 
     void OnDeath()
     {
-
         SoundSystem.Instance().play(m_deathSound, 0.5f, true);
+
+        if (m_deathObject != null)
+        {
+            var obj = Instantiate(m_deathObject);
+            obj.transform.position = transform.position;
+        }
+
         Destroy(gameObject);
     }
 }
