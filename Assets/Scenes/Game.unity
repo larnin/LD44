@@ -686,7 +686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &262212103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2050,6 +2050,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025821598}
   - component: {fileID: 1025821599}
+  - component: {fileID: 1025821600}
   m_Layer: 0
   m_Name: BossLifebar
   m_TagString: Untagged
@@ -2085,6 +2086,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d41a5f4c4004b468bfc4eba766dc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1025821600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025821597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430b134335afa9f4792b0e7209e5f4cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_enableMusic: {fileID: 8300000, guid: cd9b41fc7a3debd419aec3d185f12978, type: 3}
+  m_disableMusic: {fileID: 8300000, guid: cd81cd0156d273e438cdbb6fe1d70809, type: 3}
 --- !u!1 &1050382747
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,11 +4095,6 @@ PrefabInstance:
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}

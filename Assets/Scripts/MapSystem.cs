@@ -55,6 +55,7 @@ public class MapSystem : MonoBehaviour
     [SerializeField] GameObject m_downDoor = null;
     [SerializeField] GameObject m_leftDoor = null;
     [SerializeField] GameObject m_rightDoor = null;
+    [SerializeField] GameObject m_bossDoor = null;
     [SerializeField] float m_cameraMoveSpeed = 1;
     [SerializeField] float m_playerDoorDistance = 1.0f;
     [SerializeField] float m_spawnOffset = 0.0f;
@@ -132,6 +133,8 @@ public class MapSystem : MonoBehaviour
             if (!found)
                 break;
         }
+
+        CreateBossRoom(rooms);
 
         rooms[rooms.Count - 1].type = RoomType.BossRoom;
 
@@ -222,6 +225,44 @@ public class MapSystem : MonoBehaviour
         return true;
     }
 
+    void CreateBossRoom(List<RoomGeneration> rooms)
+    {
+        for(int i = rooms.Count - 1; i >= 0; i--)
+        {
+            var r = rooms[i];
+            if(CanGo(new Vector2Int(r.x, r.y + 1), rooms))
+            {
+                RoomGeneration newRoom = new RoomGeneration();
+                newRoom.x = r.x;
+                newRoom.y = r.y + 1;
+                r.upDoor = true;
+                newRoom.downDoor = true;
+                rooms.Add(newRoom);
+                return;
+            }
+            if (CanGo(new Vector2Int(r.x - 1, r.y), rooms))
+            {
+                RoomGeneration newRoom = new RoomGeneration();
+                newRoom.x = r.x - 1;
+                newRoom.y = r.y;
+                r.leftDoor = true;
+                newRoom.rightDoor = true;
+                rooms.Add(newRoom);
+                return;
+            }
+            if (CanGo(new Vector2Int(r.x + 1, r.y), rooms))
+            {
+                RoomGeneration newRoom = new RoomGeneration();
+                newRoom.x = r.x + 1;
+                newRoom.y = r.y;
+                r.rightDoor = true;
+                newRoom.leftDoor = true;
+                rooms.Add(newRoom);
+                return;
+            }
+        }
+    }
+
     bool CanGo(Vector2Int to, List<RoomGeneration> rooms)
     {
         if (rooms.Find(x => { return x.x == to.x && x.y == to.y; }) != null)
@@ -283,6 +324,11 @@ public class MapSystem : MonoBehaviour
             var door = Instantiate(m_leftDoor, room.transform);
             door.transform.localPosition = new Vector3(-m_roomSize.x / 2, 0, -1);
         }
+        if(r.type == RoomType.BossRoom)
+        {
+            var door = Instantiate(m_bossDoor, room.transform);
+            door.transform.localPosition = new Vector3(0, m_roomSize.y / 2, -1);
+        }
 
         m_rooms.Add(instance);
     }
@@ -299,9 +345,6 @@ public class MapSystem : MonoBehaviour
                 var spawns = room.room.GetComponentsInChildren<SpawnPoint>();
                 for (int i = 0; i < spawns.Length; i++)
                     spawns[i].Spawn();
-
-                //if (room.type == RoomType.BossRoom)
-                //    Event<VictoryEvent>.Broadcast(new VictoryEvent());
             }
 
             room.discovered = true;

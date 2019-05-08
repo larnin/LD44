@@ -44,6 +44,7 @@ public class DefeatAndVictory : MonoBehaviour
 
         m_started = true;
         SoundSystem.Instance().play(m_victorySong);
-        DOVirtual.DelayedCall(m_stateDelay, () => { SceneSystem.changeScene("WinMenu"); });
+        //DOVirtual.DelayedCall(m_stateDelay, () => { SceneSystem.changeScene("WinMenu"); });
+        SceneSystem.changeScene("WinMenu");
     }
 }
