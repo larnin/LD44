@@ -32,9 +32,16 @@ public class SoundSystem : MonoBehaviour
 
     public void PlayMusic(AudioClip clip, float volume = 0.5f, float transitionTime = 1)
     {
+        if (this == null)
+            return;
+
         if(m_currentSource1)
         {
-            m_musicSource1.DOFade(0, transitionTime).OnComplete(()=> { m_musicSource1.Stop(); });
+            m_musicSource1.DOFade(0, transitionTime).OnComplete(()=> 
+            {
+                if (this != null)
+                    m_musicSource1.Stop();
+            });
             m_musicSource2.clip = clip;
             m_musicSource2.volume = 0;
             m_musicSource2.Play();
@@ -42,7 +49,11 @@ public class SoundSystem : MonoBehaviour
         }
         else
         {
-            m_musicSource2.DOFade(0, transitionTime).OnComplete(() => { m_musicSource2.Stop(); }); ;
+            m_musicSource2.DOFade(0, transitionTime).OnComplete(() => 
+            {
+                if(this != null)
+                    m_musicSource2.Stop();
+            }); ;
             m_musicSource1.clip = clip;
             m_musicSource1.volume = 0;
             m_musicSource1.Play();

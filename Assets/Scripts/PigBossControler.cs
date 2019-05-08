@@ -32,6 +32,8 @@ public class PigBossControler : SerializedMonoBehaviour
     [SerializeField] int m_maxSpawnNb = 2;
     [SerializeField] float m_poweredSpawnMultiplier = 1;
     [SerializeField] List<GameObject> m_entities = new List<GameObject>();
+    [SerializeField] GameObject m_spawnFx = null;
+    [SerializeField] AudioClip m_spawnSound = null;
 
     Rigidbody2D m_rigodbody = null;
     Animator m_animator = null;
@@ -162,10 +164,25 @@ public class PigBossControler : SerializedMonoBehaviour
                     
                     DOVirtual.DelayedCall(new UniformFloatDistribution(m_minSpawnDelay, m_maxSpawnDelay).Next(rand), () =>
                     {
+                        if (this == null)
+                            return;
 
-                        var index = new UniformIntDistribution(0, m_entities.Count).Next(rand);
-                        var obj = Instantiate(m_entities[index]);
-                        obj.transform.position = pos + new Vector3(dir.x, dir.y);
+                        DOVirtual.DelayedCall(0.3f, () =>
+                        {
+                            if (this == null)
+                                return;
+                            var index = new UniformIntDistribution(0, m_entities.Count).Next(rand);
+                            var obj = Instantiate(m_entities[index]);
+                            obj.transform.position = pos + new Vector3(dir.x, dir.y);
+                        });
+
+                        if(m_spawnFx != null)
+                        {
+                            var fx = Instantiate(m_spawnFx);
+                            fx.transform.position = pos + new Vector3(dir.x, dir.y, -0.1f);
+                            Destroy(fx, 2);
+                        }
+                        SoundSystem.Instance().play(m_spawnSound, 0.5f, true);
                     });
                 }
 

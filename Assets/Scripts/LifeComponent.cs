@@ -91,6 +91,7 @@ public class LifeComponent : MonoBehaviour
         {
             var obj = Instantiate(m_deathObject);
             obj.transform.position = transform.position;
+            Destroy(obj, 2);
         }
     }
 

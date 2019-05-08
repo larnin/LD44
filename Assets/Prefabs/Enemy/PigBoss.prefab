@@ -354,6 +354,9 @@ MonoBehaviour:
   m_poweredSpawnMultiplier: 1.6
   m_entities:
   - {fileID: 4933683398024292287, guid: 7d59251e54d4b4e41bac62c96c2e7040, type: 3}
+  m_spawnFx: {fileID: 3467191026690230849, guid: f8b43bc2428fe164c89b245d6227e7bc,
+    type: 3}
+  m_spawnSound: {fileID: 8300000, guid: ac7efe85b36f2854390170db44ec4869, type: 3}
 --- !u!114 &686472086799911137
 MonoBehaviour:
   m_ObjectHideFlags: 0
