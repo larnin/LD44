@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class DoorBoss : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class DoorBoss : MonoBehaviour
     SubscriberList m_subscriberList = new SubscriberList();
 
     Animator m_animator = null;
+    GameObject m_light = null;
     bool m_doorState = true;
 
     private void Awake()
     {
         m_animator = GetComponent<Animator>();
+        m_light = transform.Find("Light").gameObject;
 
         m_subscriberList.Add(new Event<AllEnemyKilledEvent>.Subscriber(OnAllEnemyKill));
         m_subscriberList.Add(new Event<EnemySpawnEvent>.Subscriber(OnEnemySpawn));
@@ -38,6 +41,11 @@ public class DoorBoss : MonoBehaviour
         m_doorState = true;
 
         m_animator.SetBool("Closed", false);
+        DOVirtual.DelayedCall(0.3f, () =>
+        {
+            if (this != null)
+                m_light.SetActive(true);
+        });
 
         SoundSystem.Instance().play(m_openSound);
     }
@@ -50,6 +58,7 @@ public class DoorBoss : MonoBehaviour
         m_doorState = false;
 
         m_animator.SetBool("Closed", true);
+        m_light.SetActive(false);
 
         SoundSystem.Instance().play(m_closeSound);
     }
