@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -14,10 +15,21 @@ public class PauseMenu : MonoBehaviour
 
     bool m_open = false;
 
+    static PauseMenu m_instance = null;
+
+    public static bool IsPaused()
+    {
+        if (m_instance == null)
+            return false;
+        return m_instance.m_open;
+    }
+
     private void Awake()
     {
         m_subscriberList.Add(new Event<ButtonPressEvent>.Subscriber(OnMenuSelect));
         m_subscriberList.Subscribe();
+
+        m_instance = this;
     }
 
     private void OnDestroy()
@@ -70,6 +82,12 @@ public class PauseMenu : MonoBehaviour
             Cursor.visible = false;
         }
 
-        m_open = !m_open;
+        if (m_open)
+            DOVirtual.DelayedCall(0.01f, () =>
+            {
+                if (this != null)
+                    m_open = false;
+            });
+        else m_open = true;
     }
 }

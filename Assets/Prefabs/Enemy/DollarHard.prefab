@@ -221,7 +221,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_deltaTime
       Entry: 4
-      Data: 0.3
+      Data: 0.5
     - Name: 
       Entry: 8
       Data: 
@@ -319,6 +319,5 @@ MonoBehaviour:
   m_contactDamage: 15
   m_deathSound: {fileID: 8300000, guid: 25d3938025df43e40b851fd2015411cf, type: 3}
   m_hitSound: {fileID: 8300000, guid: cfd6e3da2ccc85b4b908ec1a31c6040e, type: 3}
-  m_isBoss: 0
   m_deathObject: {fileID: 3467191026690230849, guid: 364b82b5d586a7c4090af626daad2d7f,
     type: 3}

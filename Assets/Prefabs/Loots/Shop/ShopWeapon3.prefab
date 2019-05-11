@@ -795,4 +795,5 @@ MonoBehaviour:
   m_pickSound: {fileID: 8300000, guid: 01ee8d1a9d4cdd048af53cfcf33cc20b, type: 3}
   m_dropItem: {fileID: 3613241213209455095, guid: d47352b9a199e33479d5b6eef22a5753,
     type: 3}
-  m_price: 25
+  m_price: 40
+  m_priceObjectMultiplier: 1

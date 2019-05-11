@@ -378,7 +378,7 @@ MonoBehaviour:
       Data: 0.5
     - Name: multiplier
       Entry: 4
-      Data: 1.2
+      Data: 1.1
     - Name: 
       Entry: 8
       Data: 
@@ -490,4 +490,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

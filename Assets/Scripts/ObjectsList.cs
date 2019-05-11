@@ -14,12 +14,23 @@ public class ObjectsList : MonoBehaviour
 
     SubscriberList m_subscriberList = new SubscriberList();
 
+    static ObjectsList m_instance = null;
+
     int m_itemCount = 0;
+
+    public static int GetItemCount()
+    {
+        if (m_instance == null)
+            return 0;
+        return m_instance.m_itemCount;
+    }
 
     private void Awake()
     {
         m_subscriberList.Add(new Event<ObjectPickedEvent>.Subscriber(OnObjectPicked));
         m_subscriberList.Subscribe();
+
+        m_instance = this;
     }
 
     private void OnDestroy()

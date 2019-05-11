@@ -796,3 +796,4 @@ MonoBehaviour:
   m_dropItem: {fileID: 3613241213209455095, guid: 5c14d63484159f14aa300e68876031e7,
     type: 3}
   m_price: 10
+  m_priceObjectMultiplier: 1

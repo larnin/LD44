@@ -162,7 +162,7 @@ MonoBehaviour:
       Data: 2|StatModifier, Assembly-CSharp
     - Name: baseValue
       Entry: 4
-      Data: 0.5
+      Data: 0.7
     - Name: multiplier
       Entry: 4
       Data: 0.9
@@ -277,7 +277,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &7590781921728426369
 GameObject:
   m_ObjectHideFlags: 0

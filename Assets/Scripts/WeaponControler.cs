@@ -63,7 +63,7 @@ public class WeaponControler : SerializedMonoBehaviour
         if (m_weapon != null)
         {
             float fire = Input.GetAxisRaw(fireAxis);
-            if((fire > 0.5f && m_oldFireAxis <= 0.5f) || Input.GetButtonDown(fireButton))
+            if(((fire > 0.5f && m_oldFireAxis <= 0.5f) || Input.GetButtonDown(fireButton)) && !PauseMenu.IsPaused())
                 m_weapon.StartFire(dir);
             m_weapon.Process(dir);
             if ((fire < 0.5f && m_oldFireAxis >= 0.5f) || Input.GetButtonUp(fireButton))
@@ -78,6 +78,9 @@ public class WeaponControler : SerializedMonoBehaviour
     void UpdateMouseCursor()
     {
         Vector2 offset = new Vector2(Input.GetAxisRaw(mouseXAxis), Input.GetAxisRaw(mouseYAxis));
+
+        if (PauseMenu.IsPaused())
+            return;
 
         if (Mathf.Abs(offset.x) <= 0 || Mathf.Abs(offset.y) <= 0)
             return;

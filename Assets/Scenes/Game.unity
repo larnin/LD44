@@ -4094,7 +4094,7 @@ PrefabInstance:
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 12
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
@@ -4105,75 +4105,8 @@ PrefabInstance:
     - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
         type: 3}
       propertyPath: serializationData.PrefabModifications.Array.data[0]
-      value: '"path":"m_stats","add_keys":{"$id":0,"$type":"System.Object[], mscorlib","$rlength":6,"$rcontent":[{"$id":1,"$type":"System.String,
-        mscorlib","FireRateMultiplier"},$iref:1,{"$id":2,"$type":"System.String, mscorlib","LootDistanceMultiplier"},$iref:2,{"$id":3,"$type":"System.String,
-        mscorlib","ProjectileSizeMultiplier"},$iref:3]},"remove_keys":null'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[1]
-      value: '"path":"m_stats.{\"DamageMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
+      value: '"path":"m_stats.{\"DamageMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
         mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[2]
-      value: '"path":"m_stats.{\"FireRateMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
-        Assembly-CSharp","baseValue":1,"multiplier":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[3]
-      value: '"path":"m_stats.{\"FireRateMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[4]
-      value: '"path":"m_stats.{\"FireRateMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[5]
-      value: '"path":"m_stats.{\"LootDistanceMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
-        Assembly-CSharp","baseValue":1,"multiplier":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[6]
-      value: '"path":"m_stats.{\"LootDistanceMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[7]
-      value: '"path":"m_stats.{\"LootDistanceMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[8]
-      value: '"path":"m_stats.{\"ProjectileSizeMultiplier\"}","value":{"$id":0,"$type":"StatModifier,
-        Assembly-CSharp","baseValue":1,"multiplier":1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[9]
-      value: '"path":"m_stats.{\"ProjectileSizeMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[10]
-      value: '"path":"m_stats.{\"ProjectileSizeMultiplier\"}.multiplier","value":{"$id":0,"$type":"System.Single,
-        mscorlib",1}'
-      objectReference: {fileID: 0}
-    - target: {fileID: 40361941309210340, guid: 33cedad122473c140b618ef954c17f5c,
-        type: 3}
-      propertyPath: serializationData.PrefabModifications.Array.data[11]
-      value: '"path":"m_stats.{\"ProjectileSpeedMultiplier\"}.baseValue","value":{"$id":0,"$type":"System.Single,
-        mscorlib",2.5}'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33cedad122473c140b618ef954c17f5c, type: 3}
@@ -4243,11 +4176,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1892254137259240961, guid: c1b3dda0f6ec16c4dbef74748acb97c4,
-        type: 3}
-      propertyPath: m_roomCount
-      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b3dda0f6ec16c4dbef74748acb97c4, type: 3}

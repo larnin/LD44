@@ -955,7 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_sceneName: Game
-  m_ludumURL: 'https://www.perdu.com/  '
+  m_ludumURL: https://ldjam.com/events/ludum-dare/44/kill-kill-bank-bank
 --- !u!1 &485867286
 GameObject:
   m_ObjectHideFlags: 0

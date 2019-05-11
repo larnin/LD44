@@ -172,10 +172,10 @@ MonoBehaviour:
       Data: 2|StatModifier, Assembly-CSharp
     - Name: baseValue
       Entry: 4
-      Data: 1
+      Data: 0.5
     - Name: multiplier
       Entry: 4
-      Data: 1.25
+      Data: 1.2
     - Name: 
       Entry: 8
       Data: 
@@ -217,7 +217,7 @@ MonoBehaviour:
       Data: 0
     - Name: multiplier
       Entry: 4
-      Data: 0.6
+      Data: 0.8
     - Name: 
       Entry: 8
       Data: 
@@ -329,7 +329,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &8425299986484198612
 GameObject:
   m_ObjectHideFlags: 0
