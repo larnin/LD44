@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 686472086799911138}
   - component: {fileID: 686472086799911141}
   - component: {fileID: 686472086799911140}
-  - component: {fileID: 686472086799911137}
+  - component: {fileID: 651588791790542081}
   m_Layer: 9
   m_Name: PigBoss
   m_TagString: Untagged
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_spawnFx: {fileID: 3467191026690230849, guid: f8b43bc2428fe164c89b245d6227e7bc,
     type: 3}
   m_spawnSound: {fileID: 8300000, guid: ac7efe85b36f2854390170db44ec4869, type: 3}
---- !u!114 &686472086799911137
+--- !u!114 &651588791790542081
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 686472086799911143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5d8f702f4aea4e4da59d67f37d08757, type: 3}
+  m_Script: {fileID: 11500000, guid: 100d5536a3bf92b4982b7ffbe24cb6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_loots:
@@ -380,5 +380,5 @@ MonoBehaviour:
   m_contactDamage: 25
   m_deathSound: {fileID: 8300000, guid: a527d0dd48b3429488057d652f7ffbc3, type: 3}
   m_hitSound: {fileID: 8300000, guid: d812d69550419a240ab37b8cf487565d, type: 3}
-  m_isBoss: 1
-  m_deathObject: {fileID: 0}
+  m_deathObject: {fileID: 3467191026690230849, guid: 241928d5aa0c990498ae2adadf116817,
+    type: 3}

@@ -8,16 +8,20 @@ public class BossMusicSwitcher : MonoBehaviour
 
     bool m_started = false;
 
+    private void Awake()
+    {
+        m_started = true;
+    }
+
     private void OnEnable()
     {
         if(m_started)
             SoundSystem.Instance().PlayMusic(m_enableMusic);
-
-        m_started = true;
     }
 
     private void OnDisable()
     {
-        SoundSystem.Instance().PlayMusic(m_disableMusic);
+        if(m_started)
+            SoundSystem.Instance().PlayMusic(m_disableMusic);
     }
 }

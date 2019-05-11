@@ -20,18 +20,17 @@ public class LifeComponent : MonoBehaviour
 
     [SerializeField] List<LootInfo> m_loots = new List<LootInfo>();
     [SerializeField] int m_lootCount = 1;
-    [SerializeField] float m_maxLife = 1;
+    [SerializeField] protected float m_maxLife = 1;
     [SerializeField] float m_contactDamage = 1;
     [SerializeField] AudioClip m_deathSound = null;
     [SerializeField] AudioClip m_hitSound = null;
-    [SerializeField] bool m_isBoss = false;
-    [SerializeField] GameObject m_deathObject = null;
+    [SerializeField] protected GameObject m_deathObject = null;
 
     GameObject m_visual;
 
     Tweener m_currentTween = null;
 
-    float m_life = 0;
+    protected float m_life = 0;
 
     private void Awake()
     {
@@ -39,20 +38,14 @@ public class LifeComponent : MonoBehaviour
         m_visual = transform.Find("Visual").gameObject;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         Event<EnemySpawnEvent>.Broadcast(new EnemySpawnEvent(gameObject));
-
-        if (m_isBoss)
-            Event<BossLifeChangeEvent>.Broadcast(new BossLifeChangeEvent(m_life, m_maxLife));
     }
 
-    public void Damage(float power)
+    public virtual void Damage(float power)
     {
         m_life -= power;
-
-        if(m_isBoss)
-            Event<BossLifeChangeEvent>.Broadcast(new BossLifeChangeEvent(Mathf.Max(m_life, 0), m_maxLife));
 
         if (m_life <= 0)
         {
@@ -87,7 +80,12 @@ public class LifeComponent : MonoBehaviour
         CreateLoot();
         SoundSystem.Instance().play(m_deathSound, 0.5f, true);
 
-        if(m_deathObject != null)
+        CreateKillAnimation();
+    }
+
+    protected virtual void CreateKillAnimation()
+    {
+        if (m_deathObject != null)
         {
             var obj = Instantiate(m_deathObject);
             obj.transform.position = transform.position;

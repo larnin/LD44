@@ -26,6 +26,9 @@ public class GoldGain : MonoBehaviour
         if (text != null)
             DOVirtual.Float(1, 0, m_showTime, x =>
             {
+                if (text == null)
+                    return;
+
                 Color c = text.color;
                 c.a = x;
                 text.color = c;
