@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2233932899549449890}
   - component: {fileID: 2233932899549449895}
-  - component: {fileID: 2233932899549449888}
   - component: {fileID: 2233932899549449889}
   - component: {fileID: 604867693}
   - component: {fileID: 604867688}
   - component: {fileID: 2233932899549449901}
+  - component: {fileID: 1621391836}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -66,32 +66,6 @@ MonoBehaviour:
   m_shakePower: 0.2
   m_deathObject: {fileID: 3467191026690230849, guid: 364b82b5d586a7c4090af626daad2d7f,
     type: 3}
---- !u!61 &2233932899549449888
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2233932899549449900}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 27735c5912c800d478fec6ca8bfd2fd6, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.29}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.71, y: 0.8}
-  m_EdgeRadius: 0
 --- !u!50 &2233932899549449889
 Rigidbody2D:
   serializedVersion: 4
@@ -237,7 +211,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  m_cursorSpeed: 1
+  m_cursorSpeed: 0.6
   m_cursorMaxDistance: 5
   m_threshold: 0.1
   m_dropPrefab: 0
@@ -260,6 +234,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &1621391836
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2233932899549449900}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.35652077, y: 0.044980705}
+      - {x: -0.36063528, y: -0.60205317}
+      - {x: -0.27710477, y: -0.68798816}
+      - {x: 0.28724402, y: -0.6914959}
+      - {x: 0.3580563, y: -0.6098087}
+      - {x: 0.35487092, y: 0.045246676}
+      - {x: 0.28554386, y: 0.1071728}
+      - {x: -0.28852844, y: 0.109174386}
 --- !u!1 &3303847752789313769
 GameObject:
   m_ObjectHideFlags: 0

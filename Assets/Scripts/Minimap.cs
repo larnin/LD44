@@ -30,6 +30,8 @@ public class Minimap : SerializedMonoBehaviour
     {
         m_subscriberList.Add(new Event<UpdateMinimapEvent>.Subscriber(OnMapUpdate));
         m_subscriberList.Add(new Event<HideMapEvent>.Subscriber(OnHideMap));
+        m_subscriberList.Add(new Event<AllEnemyKilledEvent>.Subscriber(OnAllEnemyKill));
+        m_subscriberList.Add(new Event<EnemySpawnEvent>.Subscriber(OnEnemySpawn));
         m_subscriberList.Subscribe();
     }
 
@@ -223,5 +225,15 @@ public class Minimap : SerializedMonoBehaviour
                 img.color = c;
             }
         }
+    }
+
+    void OnAllEnemyKill(AllEnemyKilledEvent e)
+    {
+        gameObject.SetActive(true);
+    }
+
+    void OnEnemySpawn(EnemySpawnEvent e)
+    {
+        gameObject.SetActive(false);
     }
 }

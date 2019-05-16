@@ -82,16 +82,30 @@ public class WeaponControler : SerializedMonoBehaviour
         if (PauseMenu.IsPaused())
             return;
 
-        if (Mathf.Abs(offset.x) <= 0 || Mathf.Abs(offset.y) <= 0)
-            return;
+        if (Mathf.Abs(offset.x) > 0 || Mathf.Abs(offset.y) > 0)
+        {
+            offset *= m_cursorSpeed;
 
-        offset *= m_cursorSpeed;
+            m_cursorPosition += offset;
+        }
 
-        m_cursorPosition += offset;
+        if (Camera.allCameras.Length > 0)
+        {
+            Camera cam = Camera.allCameras[0];
+            var height = cam.orthographicSize;
+            var width = height * cam.aspect;
 
-        float magnitude = m_cursorPosition.magnitude;
-        if (magnitude > m_cursorMaxDistance)
-            m_cursorPosition *= m_cursorMaxDistance / magnitude;
+            var camPos = cam.transform.position;
+            var pos = transform.position;
+            var posOffset = camPos - pos;
+
+            m_cursorPosition -= new Vector2(posOffset.x, posOffset.y);
+
+            m_cursorPosition.x = Mathf.Clamp(m_cursorPosition.x, -width, width);
+            m_cursorPosition.y = Mathf.Clamp(m_cursorPosition.y, -height, height);
+
+            m_cursorPosition += new Vector2(posOffset.x, posOffset.y);
+        }
     }
 
     void UpdateControlerCursor()
